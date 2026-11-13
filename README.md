@@ -16,7 +16,7 @@ On your phone, open it and choose **Add to Home Screen** (Safari) or **Install a
   - **Easy**: 3 squares on a 3 × 3 grid
   - **Medium**: 5 squares on a 4 × 4 grid
   - **Hard**: 7 squares on a 5 × 5 grid
-- The pattern shows a little longer when it has more squares
+- The pattern flashes for one to two seconds, a little longer when it has more squares
 - The squares can be tapped in any order
 - A count of patterns solved at each level
 - Picks up where you left off after a reload

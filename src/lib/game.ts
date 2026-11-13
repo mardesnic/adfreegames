@@ -11,7 +11,7 @@ export const SIZES: Record<Level, number> = { easy: 3, medium: 4, hard: 5 };
 export const LIT: Record<Level, number> = { easy: 3, medium: 5, hard: 7 };
 
 // How long the pattern shows, in milliseconds: longer for more squares.
-export const showTime = (level: Level) => 1500 + 250 * LIT[level];
+export const showTime = (level: Level) => 800 + 150 * LIT[level];
 
 export type Round = {
   level: Level;
