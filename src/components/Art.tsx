@@ -22,11 +22,16 @@ export function SkeletonArt({ head }: { head: boolean }) {
           <path d='M62 42 74 58 78 70' />
           <circle cx='79' cy='73' r='3.5' />
         </g>
-        <path d='M50 34v34' />
+        <path d='M50 31v37' />
         <path d='M37 42h26M39 50h22M41 58h18' />
         <path className='bone__fill' d='M40 66h20l-4 8h-12z' />
       </g>
-      {head && <SkullArt className='head' />}
+      {head && (
+        // Smaller and higher than the skull alone, so the neck shows.
+        <g transform='translate(10 -6) scale(0.8)'>
+          <SkullArt className='head' />
+        </g>
+      )}
     </svg>
   );
 }

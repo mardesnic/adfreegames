@@ -405,8 +405,14 @@ h2 {
 }
 
 .board--won .sprite--skull .sprite__body {
-  translate: 0 -56%;
-  transition: translate 0.45s;
+  /* The size and place of the head the skeleton draws. */
+  width: 51.5%;
+  height: 51.5%;
+  translate: 0 -94%;
+  transition:
+    translate 0.45s,
+    width 0.45s,
+    height 0.45s;
   animation: gone 0s 0.45s forwards;
 }
 
@@ -416,7 +422,7 @@ h2 {
 
 .board--won .sprite--skeleton .sprite__body {
   transform-origin: 50% 95%;
-  animation: dance 0.7s ease-in-out 0.5s 4;
+  animation: dance 0.7s ease-in-out 0.5s 2;
 }
 
 .arm,
@@ -438,19 +444,19 @@ h2 {
 }
 
 .board--won .arm--left {
-  animation: wave-left 0.35s ease-in-out 0.5s 8 alternate;
+  animation: wave-left 0.35s ease-in-out 0.5s 4 alternate;
 }
 
 .board--won .arm--right {
-  animation: wave-right 0.35s ease-in-out 0.5s 8 alternate;
+  animation: wave-right 0.35s ease-in-out 0.5s 4 alternate;
 }
 
 .board--won .leg--left {
-  animation: kick-left 0.7s ease-in-out 0.5s 4;
+  animation: kick-left 0.7s ease-in-out 0.5s 2;
 }
 
 .board--won .leg--right {
-  animation: kick-right 0.7s ease-in-out 0.5s 4;
+  animation: kick-right 0.7s ease-in-out 0.5s 2;
 }
 
 @keyframes bob {
