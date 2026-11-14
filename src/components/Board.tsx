@@ -7,6 +7,10 @@ import { LooseSkull, SkeletonArt, TileArt, TrunkArt, Web } from './Art';
 // A drag shorter than this is a tap, and does nothing.
 const SWIPE = 24;
 
+// How far from the middle of their square, in squares, a swipe can start
+// and still move the skeleton or the skull.
+const REACH = 0.8;
+
 export type Who = 'skeleton' | 'skull';
 
 // Who walked into something, counted so each bump shakes again.
@@ -25,7 +29,7 @@ export function Board({
   pos: Pos;
   won: boolean;
   bump?: Bump;
-  // A swipe moves whichever of the two it starts nearer to.
+  // A swipe moves the one of the two it starts on.
   onSwipe: (who: Who, dir: Dir) => void;
   // The skull is back on and the dance is over.
   onDanced: () => void;
@@ -33,20 +37,25 @@ export function Board({
 }) {
   const down = useRef<{ x: number; y: number; who: Who } | null>(null);
 
-  const nearer = (e: React.PointerEvent): Who => {
+  // Who the swipe starts on, with a little room around their square, or
+  // no one when it starts away from both.
+  const touched = (e: React.PointerEvent): Who | undefined => {
     const box = e.currentTarget.getBoundingClientRect();
     const unit = box.width / level.width;
     const x = (e.clientX - box.left) / unit - 0.5;
     const y = (e.clientY - box.top) / unit - 0.5;
     const away = (i: number) =>
       Math.hypot((i % level.width) - x, Math.floor(i / level.width) - y);
-    return away(pos.skull) < away(pos.skeleton) ? 'skull' : 'skeleton';
+    const who = away(pos.skull) < away(pos.skeleton) ? 'skull' : 'skeleton';
+    return away(pos[who]) < REACH ? who : undefined;
   };
 
   const onDown = (e: React.PointerEvent) => {
     if (won || !e.isPrimary) return;
+    const who = touched(e);
+    if (!who) return;
     e.currentTarget.setPointerCapture(e.pointerId);
-    down.current = { x: e.clientX, y: e.clientY, who: nearer(e) };
+    down.current = { x: e.clientX, y: e.clientY, who };
   };
 
   const onUp = (e: React.PointerEvent) => {

@@ -11,7 +11,7 @@ On your phone, open it and choose **Add to Home Screen** (Safari) or **Install a
 ## Features
 
 - Levels with beds, secret bookcases, trunks and slippery rugs, each a little harder than the one before
-- Swipe the skeleton or the skull, whichever the swipe starts nearer to
+- Swipe the skeleton or the skull: the swipe starts on the one it moves
 - Every level can be won, no move ever leaves it unwinnable, and the beds, bookcases, trunks and rugs always matter (checked by a test)
 - Made for holding the phone upright
 - Picks up where you left off after a reload
