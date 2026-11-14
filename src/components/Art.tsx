@@ -213,6 +213,30 @@ function Bookcase({ open }: { open: boolean }) {
   );
 }
 
+// A long rug on a polished floor, with fringes and a shine.
+function Rug() {
+  return (
+    <>
+      <rect className='rug' x='2' y='14' width='96' height='72' rx='3' />
+      <rect className='rug__border' x='10' y='22' width='80' height='56' />
+      <path className='rug__shine' d='M20 70 40 30M34 74 54 34M62 70 78 38' />
+      <path className='rug__fringe' d='M2 8v6M2 86v6M98 8v6M98 86v6' />
+    </>
+  );
+}
+
+// An old trunk with brass corners, that the skeleton pushes along.
+export function TrunkArt() {
+  return (
+    <svg className='art' viewBox='0 0 100 100' aria-hidden='true'>
+      <path className='wood' d='M10 40q0-22 40-22t40 22v48H10Z' />
+      <path className='trunk__band' d='M10 44h80M30 22v66M70 22v66' />
+      <rect className='brass' x='42' y='38' width='16' height='16' rx='3' />
+      <path className='wood-edge' d='M10 40q0-22 40-22t40 22v48H10Z' />
+    </svg>
+  );
+}
+
 const THING_ART = {
   crate: Crate,
   piano: Piano,
@@ -221,6 +245,7 @@ const THING_ART = {
   candles: Candles,
   bed: Bed,
   board: Board,
+  rug: Rug,
 };
 
 export function TileArt({

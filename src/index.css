@@ -386,6 +386,33 @@ h2 {
   fill: var(--crate-dark);
 }
 
+.rug {
+  fill: var(--couch-dark);
+}
+
+.rug__border {
+  fill: none;
+  stroke: var(--brass);
+  stroke-width: 4;
+}
+
+.rug__shine {
+  stroke: rgb(255 255 255 / 0.35);
+  stroke-width: 4;
+  stroke-linecap: round;
+}
+
+.rug__fringe {
+  stroke: var(--paper);
+  stroke-width: 3;
+}
+
+.trunk__band {
+  fill: none;
+  stroke: var(--crate-dark);
+  stroke-width: 5;
+}
+
 .passage {
   fill: #110c16;
 }

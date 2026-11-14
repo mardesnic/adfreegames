@@ -1,5 +1,5 @@
 import { LEVELS, levelById } from './levels';
-import { move, type Dir, type Move, type Pos } from './skeleton';
+import { move, startPos, type Dir, type Move, type Pos } from './skeleton';
 
 // The level being played and where the two are.
 export type Game = { level: string; pos: Pos; won: boolean };
@@ -11,14 +11,18 @@ export function newGame(id: string): Game {
   const l = levelById(id) ?? LEVELS[0];
   return {
     level: l.id,
-    pos: { skeleton: l.skeleton, skull: l.skull },
+    pos: startPos(l),
     won: false,
   };
 }
 
 // A saved game of a level since taken out starts afresh.
-export const savedGame = (g: Game | undefined) =>
-  g && levelById(g.level) && g.pos ? g : undefined;
+// One saved before there were trunks gets the level's own.
+export function savedGame(g: Game | undefined) {
+  const l = g && levelById(g.level);
+  if (!g || !l || !g.pos) return undefined;
+  return g.pos.trunks ? g : { ...g, pos: { ...g.pos, trunks: l.trunks } };
+}
 
 export function play(game: Game, dir: Dir): { game: Game; move?: Move } {
   if (game.won) return { game };

@@ -3,12 +3,14 @@ import { parse } from './skeleton';
 // S the skeleton, H its head, . the floor, and things in the house: # a
 // crate, p a piano (one at most), c an old clock, k a couch, i a
 // candlestick, b a bed the skull rolls under, o a creaky board and d a
-// bookcase that swings open while the skeleton stands on the board.
+// bookcase that swings open while the skeleton (or a trunk) stands on the
+// board, t a trunk the skeleton pushes, r a slippery rug.
 //
-// The first room shows how the two move. Then come rooms with beds, rooms
-// with bookcases, and rooms with both, each a little longer than the one
-// before. levels.test.ts checks every level can be won, that no move ever
-// leaves it unwinnable, and that the beds and bookcases are needed.
+// The first room shows how the two move. Then come rooms with beds, with
+// bookcases, with both, with trunks, with trunks and bookcases, and with
+// rugs, each a little longer than the one before. levels.test.ts checks
+// every level can be won, that no move ever leaves it unwinnable, and that
+// the new things are needed.
 export const ROOMS = [
   [['.....', '.....', '.....', 'S...H', '.....', '.....', '.....']],
   [
@@ -24,6 +26,21 @@ export const ROOMS = [
   [
     ['.....', '....o', '....S', '.#..#', 'cb...', '.di..', 'H..i.'],
     ['o....', '..b..', '.....', 'i..k.', '.c...', '..i.c', 'HbdS.'],
+  ],
+  [
+    ['S..t.', '..cH.', '...#k', '.....', '.c...', '.....', '.k.k.'],
+    ['S....', 't...c', '.kk..', '..k.k', '.H.k.', 'c....', '.....'],
+    ['...t.', '.S...', 'ci...', '.Hc..', '...i.', '..#..', '...t.'],
+  ],
+  [
+    ['.t...', 'oc.i.', 't....', '...i.', '.S...', '...dk', 'k..dH'],
+    ['dHk..', '.id..', '.S.io', '....t', 'c....', 't....', '....i'],
+    ['i.Hk.', 'd.i.o', '.i.t.', 'Si..d', '..#..', '....#', '.i...'],
+  ],
+  [
+    ['kr..k', '...k.', '.rr..', 'k.H#S', '.c..#', '....i', '..i..'],
+    ['..#.c', '.k.H.', 'r..#.', '.i..#', '.S#..', '.rc.#', '.....'],
+    ['.....', '.....', '.S.#i', 'cr#H.', 'krr#.', 'cr..r', '..#..'],
   ],
 ];
 

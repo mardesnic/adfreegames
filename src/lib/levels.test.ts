@@ -20,16 +20,27 @@ describe('levels', () => {
     }
   });
 
-  it('needs the skull to roll under a bed and through a bookcase', () => {
+  it('needs the beds, bookcases and trunks', () => {
     for (const rows of ROOMS.flat())
       for (const [letter, tile] of [
         ['b', 'bed'],
         ['d', 'bookcase'],
+        ['t', 'trunk'],
       ])
         if (rows.join('').includes(letter)) {
           const blocked = rows.map((r) => r.replaceAll(letter, '#'));
           expect(shortest(parse('x', blocked)), tile).toBe(Infinity);
         }
+  });
+
+  it('is harder for the rugs', () => {
+    for (const rows of ROOMS.flat())
+      if (rows.join('').includes('r')) {
+        const plain = rows.map((r) => r.replaceAll('r', '.'));
+        expect(shortest(parse('x', plain))).toBeLessThan(
+          shortest(parse('x', rows))
+        );
+      }
   });
 
   it('has at most one piano in a room', () => {

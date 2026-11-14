@@ -2,7 +2,7 @@ import { useRef, type CSSProperties } from 'react';
 
 import type { Strings } from '../lib/i18n';
 import { swungOpen, type Dir, type Level, type Pos } from '../lib/skeleton';
-import { LooseSkull, SkeletonArt, TileArt, Web } from './Art';
+import { LooseSkull, SkeletonArt, TileArt, TrunkArt, Web } from './Art';
 
 // A drag shorter than this is a tap, and does nothing.
 const SWIPE = 24;
@@ -67,7 +67,7 @@ export function Board({
       '--y': Math.floor(i / level.width),
     }) as CSSProperties;
 
-  const open = swungOpen(level, pos.skeleton);
+  const open = swungOpen(level, pos.skeleton, pos.trunks);
 
   const shake = (who: Who) =>
     bump?.[who] ? `sprite__body sprite__body--stuck` : 'sprite__body';
@@ -100,6 +100,18 @@ export function Board({
       </div>
       <Web />
 
+      {pos.trunks.map((at, n) => (
+        <span
+          key={n}
+          className='sprite sprite--trunk'
+          style={place(at)}
+          role='img'
+          aria-label={t.trunk}
+        >
+          <TrunkArt />
+        </span>
+      ))}
+
       <span
         className={
           !won && level.tiles[pos.skull] === 'bed'
@@ -116,11 +128,7 @@ export function Board({
         </span>
       </span>
       <span
-        className={
-          open
-            ? 'sprite sprite--skeleton sprite--heavy'
-            : 'sprite sprite--skeleton'
-        }
+        className='sprite sprite--skeleton'
         style={place(pos.skeleton)}
         role='img'
         aria-label={t.skeleton}
