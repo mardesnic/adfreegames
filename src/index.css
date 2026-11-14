@@ -196,6 +196,10 @@ button:disabled {
   cursor: default;
 }
 
+.button:disabled {
+  opacity: 0.4;
+}
+
 .app {
   max-width: 480px;
   margin: 0 auto;

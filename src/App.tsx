@@ -370,7 +370,6 @@ export default function App() {
             setLanguage={setLanguage}
             sound={sound}
             setSound={setSound}
-            stats={stats}
             done={LEVELS.filter((l) => won.includes(l.id)).length}
             total={LEVELS.length}
             onReset={resetProgress}

@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import type { Stats } from '../lib/game';
 import { LANG_NAMES, LANGS, type Language, type Strings } from '../lib/i18n';
 
 function Segmented<T>({
@@ -33,7 +32,6 @@ export function SettingsView({
   language,
   setLanguage,
   setSound,
-  stats,
   done,
   total,
   onReset,
@@ -43,7 +41,6 @@ export function SettingsView({
   language: Language;
   setLanguage: (l: Language) => void;
   setSound: (on: boolean) => void;
-  stats: Stats;
   done: number;
   total: number;
   onReset: () => void;
@@ -118,18 +115,6 @@ export function SettingsView({
             </button>
           )}
         </div>
-      </section>
-
-      <section className='card'>
-        <h2>{t.statistics}</h2>
-        <table className='stats'>
-          <tbody>
-            <tr>
-              <th>{t.solvedColumn}</th>
-              <td>{stats.solved}</td>
-            </tr>
-          </tbody>
-        </table>
       </section>
     </>
   );
