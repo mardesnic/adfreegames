@@ -36,7 +36,7 @@ export default defineConfig({
         short_name: 'Pairs',
         description:
           'A connect-the-pairs puzzle game for kids that works offline',
-        theme_color: '#8a4fd6',
+        theme_color: '#c2187f',
         background_color: '#f4f5f7',
         display: 'standalone',
       },
