@@ -1,4 +1,4 @@
-import type { Thing } from '../lib/skeleton';
+import type { Tile } from '../lib/skeleton';
 
 // The pictures, drawn on a 100 × 100 square.
 
@@ -154,21 +154,92 @@ function Candles() {
   );
 }
 
+// An old bed, high on its legs, with room under it for the skull.
+function Bed() {
+  return (
+    <>
+      <path className='bed__under' d='M10 58h80v34H10Z' />
+      <rect className='wood' x='6' y='10' width='16' height='82' rx='4' />
+      <rect className='wood' x='78' y='26' width='16' height='66' rx='4' />
+      <rect className='paper' x='20' y='30' width='60' height='16' rx='4' />
+      <path className='bed__blanket' d='M20 38h60v18q-30 6-60 0Z' />
+      <rect className='wood' x='18' y='52' width='64' height='8' rx='2' />
+    </>
+  );
+}
+
+// A floorboard that creaks, lighter than the rest, with its nails showing.
+// The skeleton's weight pushes it down.
+function Board() {
+  return (
+    <>
+      <rect className='floorboard' x='4' y='30' width='92' height='40' rx='3' />
+      <path className='floorboard__crack' d='M20 40q10 6 22 2t26 6' />
+      <circle className='floorboard__nail' cx='12' cy='50' r='3' />
+      <circle className='floorboard__nail' cx='88' cy='50' r='3' />
+      <path className='floorboard__creak' d='M30 22l-4-8M50 20v-10M70 22l4-8' />
+    </>
+  );
+}
+
+// A bookcase full of books. Open, it has swung round, and shows the dark
+// passage behind it.
+function Bookcase({ open }: { open: boolean }) {
+  if (open)
+    return (
+      <>
+        <rect className='passage' x='6' y='4' width='88' height='92' rx='4' />
+        <path className='wood' d='M78 4h16v92H78Z' />
+        <path className='wood-edge' d='M78 4h16v92H78Z' />
+      </>
+    );
+  return (
+    <>
+      <rect className='wood' x='6' y='4' width='88' height='92' rx='4' />
+      <path
+        className='bookcase__shelf'
+        d='M14 12h72v24H14ZM14 42h72v24H14ZM14 72h72v20H14Z'
+      />
+      <path
+        className='book book--a'
+        d='M16 16h8v20h-8ZM40 20h7v16h-7ZM62 14h8v22h-8ZM32 46h8v20h-8ZM56 48h7v18h-7ZM20 74h8v18h-8ZM64 76h8v16h-8Z'
+      />
+      <path
+        className='book book--b'
+        d='M25 18h7v18h-7ZM50 16h9v20h-9ZM16 48h8v18h-8ZM44 44h9v22h-9ZM70 46h8v20h-8ZM40 76h9v16h-9Z'
+      />
+      <rect className='wood-edge' x='6' y='4' width='88' height='92' rx='4' />
+    </>
+  );
+}
+
 const THING_ART = {
   crate: Crate,
   piano: Piano,
   clock: Clock,
   couch: Couch,
   candles: Candles,
+  bed: Bed,
+  board: Board,
 };
 
-export function ThingArt({ thing }: { thing: Thing }) {
-  const Art = THING_ART[thing];
+export function TileArt({
+  tile,
+  open,
+}: {
+  tile: Exclude<Tile, 'floor'>;
+  open: boolean;
+}) {
   return (
     <svg className='art' viewBox='0 0 100 100' aria-hidden='true'>
-      <Art />
+      {tile === 'bookcase' ? <Bookcase open={open} /> : <ThingOf tile={tile} />}
     </svg>
   );
+}
+
+function ThingOf({ tile }: { tile: keyof typeof THING_ART }) {
+  const Art = THING_ART[tile];
+  return <Art />;
 }
 
 // A spider web in the top corner of the room.

@@ -2,11 +2,24 @@
 // up and down but the other way left and right, like a mirror. Furniture
 // and the walls of the room stop only the one who walks into them. When
 // the two meet, the skull hops back on and the skeleton dances.
+//
+// Each of the two can do something the other can't. The skull is small, so
+// it rolls under a bed where the skeleton can't go. The skeleton is heavy,
+// so standing on a creaky board it swings a bookcase open, and the skull
+// can roll through while it stays there.
 
-// Things in the house all stop whoever walks into them the same way.
-export const THINGS = ['crate', 'piano', 'clock', 'couch', 'candles'] as const;
+// Things in the house that stop whoever walks into them, but a bed lets
+// the skull roll under.
+export const THINGS = [
+  'crate',
+  'piano',
+  'clock',
+  'couch',
+  'candles',
+  'bed',
+] as const;
 export type Thing = (typeof THINGS)[number];
-export type Tile = 'floor' | Thing;
+export type Tile = 'floor' | 'board' | 'bookcase' | Thing;
 
 export type Level = {
   id: string;
@@ -49,10 +62,14 @@ const TILES: Record<string, Tile> = {
   c: 'clock',
   k: 'couch',
   i: 'candles',
+  b: 'bed',
+  o: 'board',
+  d: 'bookcase',
 };
 
 // A level drawn as rows of text: S the skeleton, H its head, # a crate,
-// p a piano, c an old clock, k a couch, i a candlestick, . the floor.
+// p a piano, c an old clock, k a couch, i a candlestick, b a bed, o a
+// creaky board, d a bookcase that opens, . the floor.
 export function parse(id: string, rows: string[]): Level {
   const width = rows[0].length;
   const cells = rows.join('');
@@ -71,18 +88,47 @@ export function parse(id: string, rows: string[]): Level {
   };
 }
 
-const step = (level: Level, i: number, dx: number, dy: number) => {
+const step = (
+  level: Level,
+  i: number,
+  dx: number,
+  dy: number,
+  canGo: (t: Tile) => boolean
+) => {
   const x = (i % level.width) + dx;
   const y = Math.floor(i / level.width) + dy;
   if (x < 0 || y < 0 || x >= level.width || y >= level.height) return i;
   const j = y * level.width + x;
-  return level.tiles[j] === 'floor' ? j : i;
+  return canGo(level.tiles[j]) ? j : i;
 };
+
+// The bookcases stand open while the skeleton is on a creaky board.
+export const swungOpen = (level: Level, skeleton: number) =>
+  level.tiles[skeleton] === 'board';
 
 export function move(level: Level, pos: Pos, dir: Dir): Move {
   const [dx, dy] = DIRS[dir];
-  const skeleton = step(level, pos.skeleton, dx, dy);
-  const skull = step(level, pos.skull, -dx, dy);
+  const skeleton = step(
+    level,
+    pos.skeleton,
+    dx,
+    dy,
+    (t) => t === 'floor' || t === 'board'
+  );
+  // The skeleton steps first, so the skull can go through a bookcase the
+  // moment it opens, and not once the skeleton steps off.
+  const open = swungOpen(level, skeleton);
+  const skull = step(
+    level,
+    pos.skull,
+    -dx,
+    dy,
+    (t) =>
+      t === 'floor' ||
+      t === 'board' ||
+      t === 'bed' ||
+      (t === 'bookcase' && open)
+  );
   // Landing on the same square, or passing each other, is meeting.
   const won =
     skeleton === skull || (skeleton === pos.skull && skull === pos.skeleton);

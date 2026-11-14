@@ -66,3 +66,22 @@ describe('shortest', () => {
     expect(shortest(parse('b', ['S#H', '.#.']))).toBe(Infinity);
   });
 });
+
+describe('beds and bookcases', () => {
+  it('lets only the skull roll under a bed', () => {
+    const room = parse('b', ['.b.', 'SbH']);
+    const m = move(room, { skeleton: 3, skull: 5 }, 'right');
+    expect(m.pos).toEqual({ skeleton: 3, skull: 4 });
+    expect(m.stuck).toEqual({ skeleton: true, skull: false });
+  });
+
+  it('opens a bookcase while the skeleton is on the creaky board', () => {
+    const room = parse('d', ['So...', '...dH']);
+    // The skeleton steps on the board, and the skull goes through at once.
+    const on = move(room, { skeleton: 0, skull: 9 }, 'right');
+    expect(on.pos).toEqual({ skeleton: 1, skull: 8 });
+    // Stepping off, it shuts before the skull gets in.
+    const off = move(room, { skeleton: 1, skull: 9 }, 'right');
+    expect(off.pos).toEqual({ skeleton: 2, skull: 9 });
+  });
+});

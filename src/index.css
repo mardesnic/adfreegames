@@ -357,6 +357,51 @@ h2 {
   stroke-linecap: round;
 }
 
+.bed__under {
+  fill: var(--wall);
+}
+
+.bed__blanket {
+  fill: var(--couch);
+}
+
+.floorboard {
+  fill: var(--crate);
+}
+
+.floorboard__crack,
+.floorboard__creak {
+  fill: none;
+  stroke: var(--crate-dark);
+  stroke-width: 3;
+  stroke-linecap: round;
+}
+
+.floorboard__creak {
+  stroke: var(--paper);
+  opacity: 0.6;
+}
+
+.floorboard__nail {
+  fill: var(--crate-dark);
+}
+
+.passage {
+  fill: #110c16;
+}
+
+.bookcase__shelf {
+  fill: var(--crate-dark);
+}
+
+.book--a {
+  fill: var(--couch);
+}
+
+.book--b {
+  fill: var(--paper);
+}
+
 .candles__glow {
   fill: var(--glow);
   opacity: 0.18;
@@ -423,6 +468,20 @@ h2 {
   width: 64%;
   height: 64%;
   animation-delay: -0.8s;
+}
+
+/* Under a bed the skull is small, down by the floor. */
+.sprite--skull .sprite__body {
+  transition:
+    width 0.15s,
+    height 0.15s;
+}
+
+.sprite--under .sprite__body {
+  width: 40%;
+  height: 40%;
+  align-self: end;
+  margin-bottom: 8%;
 }
 
 /* A little taller than its square, so the bones are easy to see. It
