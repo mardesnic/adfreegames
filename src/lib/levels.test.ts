@@ -14,7 +14,8 @@ describe('levels', () => {
   it('gets harder, not easier', () => {
     const lengths = LEVELS.map(shortest);
     expect(lengths[0]).toBeLessThanOrEqual(2);
-    expect(Math.max(...lengths)).toBeGreaterThanOrEqual(8);
+    for (let k = 2; k < lengths.length; k++)
+      expect(lengths[k]).toBeGreaterThan(lengths[k - 1]);
   });
 
   it('has at most one piano in a room', () => {
