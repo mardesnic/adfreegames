@@ -1,3 +1,5 @@
+import type { Thing } from '../lib/skeleton';
+
 // The pictures, drawn on a 100 × 100 square.
 
 // The skeleton, with no head until the skull hops back on. Its arms and
@@ -60,38 +62,111 @@ export function LooseSkull() {
   );
 }
 
-export function CrateArt() {
+function Crate() {
   return (
-    <svg className='art' viewBox='0 0 100 100' aria-hidden='true'>
-      <rect className='crate' x='12' y='12' width='76' height='76' rx='6' />
-      <path className='crate__plank' d='M12 12 88 88M88 12 12 88' />
-      <rect
-        className='crate__edge'
-        x='12'
-        y='12'
-        width='76'
-        height='76'
-        rx='6'
-      />
-    </svg>
+    <>
+      <rect className='wood' x='12' y='14' width='76' height='74' rx='6' />
+      <path className='crate__plank' d='M12 14 88 88M88 14 12 88' />
+      <rect className='wood-edge' x='12' y='14' width='76' height='74' rx='6' />
+    </>
   );
 }
 
-// A friendly carved pumpkin.
-export function PumpkinArt() {
+// An upright piano, with its keys and a sheet of music.
+function Piano() {
+  return (
+    <>
+      <rect className='piano' x='8' y='16' width='84' height='74' rx='5' />
+      <rect className='paper' x='36' y='22' width='28' height='16' rx='2' />
+      <path className='piano__notes' d='M42 34v-8l8-2v8' />
+      <rect className='paper' x='8' y='46' width='84' height='14' />
+      <path
+        className='piano__black'
+        d='M18 46v8M28 46v8M44 46v8M54 46v8M64 46v8M80 46v8'
+      />
+      <path className='piano__leg' d='M16 60v30M84 60v30' />
+    </>
+  );
+}
+
+// A tall old clock, stopped at a quarter past.
+function Clock() {
+  return (
+    <>
+      <path className='wood' d='M30 10h40v14l-4 4v58H34V28l-4-4Z' />
+      <circle className='paper' cx='50' cy='26' r='12' />
+      <path className='clock__hands' d='M50 26v-8M50 26h6' />
+      <rect
+        className='clock__window'
+        x='40'
+        y='44'
+        width='20'
+        height='34'
+        rx='10'
+      />
+      <path className='clock__pendulum' d='M50 44v22' />
+      <circle className='brass' cx='50' cy='68' r='5' />
+      <path className='wood-edge' d='M30 10h40v14l-4 4v58H34V28l-4-4Z' />
+    </>
+  );
+}
+
+// A velvet couch.
+function Couch() {
+  return (
+    <>
+      <path className='couch' d='M20 30c0-8 6-12 30-12s30 4 30 12v24H20Z' />
+      <rect
+        className='couch__seat'
+        x='18'
+        y='52'
+        width='64'
+        height='18'
+        rx='5'
+      />
+      <rect className='couch' x='6' y='42' width='18' height='34' rx='8' />
+      <rect className='couch' x='76' y='42' width='18' height='34' rx='8' />
+      <path className='couch__leg' d='M14 76v8M86 76v8' />
+      <circle className='brass' cx='35' cy='36' r='2.5' />
+      <circle className='brass' cx='50' cy='34' r='2.5' />
+      <circle className='brass' cx='65' cy='36' r='2.5' />
+    </>
+  );
+}
+
+// A brass candlestick with three lit candles.
+function Candles() {
+  return (
+    <>
+      <circle className='candles__glow' cx='50' cy='30' r='36' />
+      <path
+        className='candles__arm'
+        d='M28 42v6c0 10 44 10 44 0v-6M50 42v42M36 88h28'
+      />
+      <rect className='paper' x='23' y='26' width='10' height='18' rx='2' />
+      <rect className='paper' x='45' y='20' width='10' height='24' rx='2' />
+      <rect className='paper' x='67' y='26' width='10' height='18' rx='2' />
+      <path
+        className='candles__flame'
+        d='M28 14c-4 5-4 9 0 10 4-1 4-5 0-10ZM50 8c-4 5-4 9 0 10 4-1 4-5 0-10ZM72 14c-4 5-4 9 0 10 4-1 4-5 0-10Z'
+      />
+    </>
+  );
+}
+
+const THING_ART = {
+  crate: Crate,
+  piano: Piano,
+  clock: Clock,
+  couch: Couch,
+  candles: Candles,
+};
+
+export function ThingArt({ thing }: { thing: Thing }) {
+  const Art = THING_ART[thing];
   return (
     <svg className='art' viewBox='0 0 100 100' aria-hidden='true'>
-      <path className='pumpkin__stem' d='M50 28c0-8 3-12 9-14' />
-      <ellipse className='pumpkin' cx='50' cy='60' rx='36' ry='30' />
-      <path
-        className='pumpkin__rib'
-        d='M50 31c-10 8-10 50 0 58M50 31c10 8 10 50 0 58'
-      />
-      <path className='pumpkin__face' d='M33 52l6-8 6 8zM55 52l6-8 6 8z' />
-      <path
-        className='pumpkin__face'
-        d='M34 66c8 9 24 9 32 0l-6 2-4 4-4-4-4 4-4-4-4 4-4-4z'
-      />
+      <Art />
     </svg>
   );
 }

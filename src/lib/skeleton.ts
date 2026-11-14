@@ -3,7 +3,10 @@
 // and the walls of the room stop only the one who walks into them. When
 // the two meet, the skull hops back on and the skeleton dances.
 
-export type Tile = 'floor' | 'crate' | 'pumpkin';
+// Things in the house all stop whoever walks into them the same way.
+export const THINGS = ['crate', 'piano', 'clock', 'couch', 'candles'] as const;
+export type Thing = (typeof THINGS)[number];
+export type Tile = 'floor' | Thing;
 
 export type Level = {
   id: string;
@@ -42,11 +45,14 @@ const TILES: Record<string, Tile> = {
   S: 'floor',
   H: 'floor',
   '#': 'crate',
-  o: 'pumpkin',
+  p: 'piano',
+  c: 'clock',
+  k: 'couch',
+  i: 'candles',
 };
 
 // A level drawn as rows of text: S the skeleton, H its head, # a crate,
-// o a pumpkin, . the floor.
+// p a piano, c an old clock, k a couch, i a candlestick, . the floor.
 export function parse(id: string, rows: string[]): Level {
   const width = rows[0].length;
   const cells = rows.join('');

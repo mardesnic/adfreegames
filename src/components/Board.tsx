@@ -2,7 +2,7 @@ import { useRef, type CSSProperties } from 'react';
 
 import type { Strings } from '../lib/i18n';
 import type { Dir, Level, Pos } from '../lib/skeleton';
-import { CrateArt, LooseSkull, PumpkinArt, SkeletonArt, Web } from './Art';
+import { LooseSkull, SkeletonArt, ThingArt, Web } from './Art';
 
 // A drag shorter than this is a tap, and does nothing.
 const SWIPE = 24;
@@ -86,8 +86,7 @@ export function Board({
             role={tile === 'floor' ? undefined : 'img'}
             aria-label={tile === 'floor' ? undefined : t.tiles[tile]}
           >
-            {tile === 'crate' && <CrateArt />}
-            {tile === 'pumpkin' && <PumpkinArt />}
+            {tile !== 'floor' && <ThingArt thing={tile} />}
           </span>
         ))}
       </div>

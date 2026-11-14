@@ -1,6 +1,6 @@
 # Skeleton
 
-A free puzzle game for young kids that works offline. In a haunted house, a skeleton has lost its head. The child swipes the skeleton or its skull, and that one goes the way of the swipe while the other goes like a mirror: the same way up and down, but the other way left and right. Crates, pumpkins and the walls stop only the one who walks into them. When the two meet, the skull hops back on and the skeleton dances. There is no timer and no way to lose.
+A free puzzle game for young kids that works offline. In a haunted house, a skeleton has lost its head. The child swipes the skeleton or its skull, and that one goes the way of the swipe while the other goes like a mirror: the same way up and down, but the other way left and right. Crates, a piano, an old clock, a couch, candlesticks and the walls stop only the one who walks into them. When the two meet, the skull hops back on and the skeleton dances. There is no timer and no way to lose.
 
 ## Demo
 

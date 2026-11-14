@@ -13,9 +13,11 @@
   --bone-line: #2b2233;
   --crate: #b07a45;
   --crate-dark: #7d5229;
-  --pumpkin: #f76707;
-  --pumpkin-dark: #c94f00;
-  --stem: #5c940d;
+  --piano: #2a1f2e;
+  --paper: #f1e7c8;
+  --couch: #a61e4d;
+  --couch-dark: #7a1538;
+  --brass: #e0b04a;
   --glow: #ffd43b;
   --web: rgb(255 255 255 / 0.35);
   --danger: #e03131;
@@ -48,6 +50,11 @@
     --bone: #ece6d2;
     --crate: #94643a;
     --crate-dark: #64401f;
+    --piano: #1a1320;
+    --paper: #e2d6b2;
+    --couch: #8c1a42;
+    --couch-dark: #64112f;
+    --brass: #c99a3a;
     --danger: #c92a2a;
   }
 }
@@ -278,8 +285,15 @@ h2 {
   overflow: visible;
 }
 
-.crate {
+.wood {
   fill: var(--crate);
+}
+
+.wood-edge {
+  fill: none;
+  stroke: var(--crate-dark);
+  stroke-width: 5;
+  stroke-linejoin: round;
 }
 
 .crate__plank {
@@ -287,31 +301,85 @@ h2 {
   stroke-width: 7;
 }
 
-.crate__edge {
-  fill: none;
+.paper {
+  fill: var(--paper);
+}
+
+.brass {
+  fill: var(--brass);
+}
+
+.piano {
+  fill: var(--piano);
   stroke: var(--crate-dark);
-  stroke-width: 6;
-}
-
-.pumpkin {
-  fill: var(--pumpkin);
-}
-
-.pumpkin__rib {
-  fill: none;
-  stroke: var(--pumpkin-dark);
   stroke-width: 3;
 }
 
-.pumpkin__stem {
+.piano__notes,
+.piano__black {
   fill: none;
-  stroke: var(--stem);
+  stroke: var(--piano);
+  stroke-width: 4;
+}
+
+.piano__leg {
+  stroke: var(--crate-dark);
+  stroke-width: 5;
+}
+
+.clock__hands {
+  fill: none;
+  stroke: var(--piano);
+  stroke-width: 3;
+  stroke-linecap: round;
+}
+
+.clock__window {
+  fill: var(--piano);
+}
+
+.clock__pendulum {
+  stroke: var(--brass);
+  stroke-width: 3;
+}
+
+.couch {
+  fill: var(--couch);
+}
+
+.couch__seat {
+  fill: var(--couch-dark);
+}
+
+.couch__leg {
+  stroke: var(--crate-dark);
+  stroke-width: 5;
+  stroke-linecap: round;
+}
+
+.candles__glow {
+  fill: var(--glow);
+  opacity: 0.18;
+}
+
+.candles__arm {
+  fill: none;
+  stroke: var(--brass);
   stroke-width: 6;
   stroke-linecap: round;
 }
 
-.pumpkin__face {
+.candles__flame {
   fill: var(--glow);
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
+  animation: flicker 1.2s ease-in-out infinite alternate;
+}
+
+@keyframes flicker {
+  to {
+    transform: scale(0.9, 1.1);
+  }
 }
 
 .web {

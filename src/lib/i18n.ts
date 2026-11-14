@@ -26,7 +26,10 @@ const en = {
   tiles: {
     floor: 'Floor',
     crate: 'Crate',
-    pumpkin: 'Pumpkin',
+    piano: 'Piano',
+    clock: 'Old clock',
+    couch: 'Couch',
+    candles: 'Candlestick',
   } as Record<Tile, string>,
   skeleton: 'Skeleton',
   skull: 'Skull',
@@ -65,7 +68,10 @@ const hr: Strings = {
   tiles: {
     floor: 'Pod',
     crate: 'Sanduk',
-    pumpkin: 'Bundeva',
+    piano: 'Klavir',
+    clock: 'Starinski sat',
+    couch: 'Kauč',
+    candles: 'Svijećnjak',
   },
   skeleton: 'Kostur',
   skull: 'Lubanja',

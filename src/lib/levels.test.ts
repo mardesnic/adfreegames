@@ -17,6 +17,13 @@ describe('levels', () => {
     expect(Math.max(...lengths)).toBeGreaterThanOrEqual(8);
   });
 
+  it('has at most one piano in a room', () => {
+    for (const l of LEVELS)
+      expect(l.tiles.filter((t) => t === 'piano').length).toBeLessThanOrEqual(
+        1
+      );
+  });
+
   it('has portrait boards', () => {
     for (const l of LEVELS) expect(l.height).toBeGreaterThan(l.width);
   });
