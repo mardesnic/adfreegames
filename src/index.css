@@ -413,6 +413,16 @@ h2 {
   stroke-width: 5;
 }
 
+.stone {
+  fill: #6b6577;
+}
+
+.passage__steps {
+  stroke: rgb(255 255 255 / 0.18);
+  stroke-width: 3;
+  stroke-linecap: round;
+}
+
 .passage {
   fill: #110c16;
 }

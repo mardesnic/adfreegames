@@ -182,15 +182,31 @@ function Board() {
   );
 }
 
-// A bookcase full of books. Open, it has swung round, and shows the dark
+// A bookcase full of books. Open, it swings out on its hinge like a door,
+// books and all, and shows the stone arch and the steps of a secret
 // passage behind it.
 function Bookcase({ open }: { open: boolean }) {
   if (open)
     return (
       <>
-        <rect className='passage' x='6' y='4' width='88' height='92' rx='4' />
-        <path className='wood' d='M78 4h16v92H78Z' />
-        <path className='wood-edge' d='M78 4h16v92H78Z' />
+        <rect className='wood' x='6' y='4' width='88' height='92' rx='4' />
+        <rect className='stone' x='12' y='10' width='60' height='86' />
+        <path className='passage' d='M18 96V42a24 24 0 0 1 48 0v54Z' />
+        <path className='passage__steps' d='M24 90h36M28 80h28M32 70h20' />
+        <path className='wood' d='M72 8 98 0v100l-26-6Z' />
+        <path
+          className='bookcase__shelf'
+          d='M76 12l18-5v22l-18 4ZM76 40l18-4v24l-18 3ZM76 70l18-2v22l-18-3Z'
+        />
+        <path
+          className='book book--a'
+          d='M78 15l5-1v16l-5 1ZM86 41l4-1v17l-4 1ZM79 71l5-1v17l-5-1Z'
+        />
+        <path
+          className='book book--b'
+          d='M86 12l5-1v17l-5 1ZM78 44l5-1v17l-5 1ZM87 70l4 0v18l-4-1Z'
+        />
+        <path className='wood-edge' d='M72 8 98 0v100l-26-6Z' />
       </>
     );
   return (
