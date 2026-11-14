@@ -590,6 +590,46 @@ h2 {
   }
 }
 
+/* Levels */
+
+.levels {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.level {
+  aspect-ratio: 1;
+  border: 2px solid transparent;
+  border-radius: 16px;
+  background: var(--bg);
+  font-weight: 700;
+  font-size: 1.4rem;
+  transition: transform 0.1s;
+}
+
+.level:active {
+  transform: scale(0.95);
+}
+
+.level--won {
+  background: var(--accent);
+  color: var(--on-accent);
+}
+
+.level--current {
+  border-color: var(--accent);
+}
+
+/* Opens by winning the level before it. */
+.level--locked {
+  opacity: 0.35;
+}
+
+.level--locked:active {
+  transform: none;
+}
+
 .footer {
   flex-wrap: wrap;
   display: flex;

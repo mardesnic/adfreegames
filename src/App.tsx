@@ -4,6 +4,7 @@ import { Board, type Bump, type Who } from './components/Board';
 import { Confetti } from './components/Confetti';
 import { HomeLink } from './components/HomeLink';
 import { Icon } from './components/Icon';
+import { Levels } from './components/Levels';
 import { SettingsView } from './components/Menu';
 import {
   newGame,
@@ -23,7 +24,7 @@ import { useLanguage, useSound } from './lib/use-shared-settings';
 import { useStoredState } from './lib/use-stored-state';
 import { useWakeLock } from './lib/use-wake-lock';
 
-type View = 'play' | 'settings';
+type View = 'play' | 'levels' | 'settings';
 
 const KEYS: Record<string, Dir> = {
   ArrowLeft: 'left',
@@ -46,7 +47,7 @@ export default function App() {
   const progress = Array.isArray(stored.won) ? stored.won : [];
 
   const [view, setViewState] = useState<View>('play');
-  // Settings opens over the game, so the phone's Back button closes it.
+  // Menus open over the game, so the phone's Back button closes them.
   const setView = (next: View) => {
     if (next === 'play') popMenu();
     else pushMenu();
@@ -123,13 +124,21 @@ export default function App() {
         </div>
         <div className='header__actions'>
           {view === 'play' ? (
-            <button
-              className='button button--small button--icon'
-              onClick={() => setView('settings')}
-              aria-label={t.settings}
-            >
-              <Icon name='settings' />
-            </button>
+            <>
+              <button
+                className='button button--small'
+                onClick={() => setView('levels')}
+              >
+                {t.levels}
+              </button>
+              <button
+                className='button button--small button--icon'
+                onClick={() => setView('settings')}
+                aria-label={t.settings}
+              >
+                <Icon name='settings' />
+              </button>
+            </>
           ) : (
             <button
               className='button button--small button--icon'
@@ -142,6 +151,17 @@ export default function App() {
         </div>
       </header>
 
+      {view === 'levels' && (
+        <Levels
+          current={game.level}
+          progress={progress}
+          onPick={(id) => {
+            start(id);
+            setView('play');
+          }}
+          t={t}
+        />
+      )}
       {view === 'settings' && (
         <SettingsView
           language={language}
@@ -183,6 +203,12 @@ export default function App() {
                   onClick={() => start(nextLevel(level.id))}
                 >
                   {t.next}
+                </button>
+                <button
+                  className='button button--secondary'
+                  onClick={() => setView('levels')}
+                >
+                  {t.changeLevel}
                 </button>
               </div>
             </section>

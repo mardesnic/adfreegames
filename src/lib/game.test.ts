@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 
-import { newGame, nextLevel, play, recordWin, savedGame } from './game';
+import { isOpen, newGame, nextLevel, play, recordWin, savedGame } from './game';
 import { LEVELS } from './levels';
 
 describe('game', () => {
@@ -22,6 +22,13 @@ describe('game', () => {
   it('goes on to the next level, and from the last to the first', () => {
     expect(nextLevel('1')).toBe('2');
     expect(nextLevel(LEVELS.at(-1)!.id)).toBe('1');
+  });
+
+  it('opens a level once the one before it is won', () => {
+    expect(isOpen('1', [], '1')).toBe(true);
+    expect(isOpen('3', [], '1')).toBe(false);
+    expect(isOpen('3', ['2'], '1')).toBe(true);
+    expect(isOpen('5', [], '5')).toBe(true);
   });
 
   it('drops a saved game of a level that is gone', () => {
