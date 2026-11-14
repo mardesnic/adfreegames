@@ -6,11 +6,10 @@ import { parse } from './skeleton';
 // bookcase that swings open while the skeleton (or a trunk) stands on the
 // board, t a trunk the skeleton pushes, r a slippery rug.
 //
-// The first room shows how the two move. Then come rooms with beds, with
-// bookcases, with both, with trunks, with trunks and bookcases, and with
-// rugs, each a little longer than the one before. levels.test.ts checks
-// every level can be won, that no move ever leaves it unwinnable, and that
-// the new things are needed.
+// Each list is a kind of room, a little longer each time. They are kept in
+// the order they were made, which gives each level its id, and played in
+// ORDER below. levels.test.ts checks every level can be won, that no move
+// ever leaves it unwinnable, and that the new things are needed.
 export const ROOMS = [
   [['.....', '.....', '.....', 'S...H', '.....', '.....', '.....']],
   [
@@ -44,8 +43,20 @@ export const ROOMS = [
   ],
 ];
 
+// The first room shows how the two move, then come beds, trunks, rugs,
+// trunks with bookcases, and last the hardest: bookcases held open by the
+// skeleton alone, and those with beds.
+const ORDER = [0, 1, 4, 6, 5, 2, 3];
+
 // The ids start with r, so progress saved for the rooms before beds and
 // bookcases isn't taken for these.
-export const LEVELS = ROOMS.flat().map((rows, n) => parse(`r${n + 1}`, rows));
+const ids = ROOMS.map((room, k) => {
+  const before = ROOMS.slice(0, k).flat().length;
+  return room.map((_, n) => `r${before + n + 1}`);
+});
+
+export const LEVELS = ORDER.flatMap((k) =>
+  ROOMS[k].map((rows, n) => parse(ids[k][n], rows))
+);
 
 export const levelById = (id: string) => LEVELS.find((l) => l.id === id);

@@ -50,6 +50,11 @@ describe('levels', () => {
       );
   });
 
+  it('plays every room once, each with its own id', () => {
+    expect(LEVELS.length).toBe(ROOMS.flat().length);
+    expect(new Set(LEVELS.map((l) => l.id)).size).toBe(LEVELS.length);
+  });
+
   it('has portrait boards', () => {
     for (const l of LEVELS) expect(l.height).toBeGreaterThan(l.width);
   });
