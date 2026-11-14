@@ -35,7 +35,7 @@ export default defineConfig({
         name: 'Pixeldoku',
         short_name: 'Pixeldoku',
         description: 'A picture logic puzzle for kids that works offline',
-        theme_color: '#c2255c',
+        theme_color: '#e03131',
         background_color: '#f4f5f7',
         display: 'standalone',
       },

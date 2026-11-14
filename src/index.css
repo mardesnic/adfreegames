@@ -4,7 +4,7 @@
   --text: #1a1d23;
   --muted: #6b7280;
   --border: #e2e5ea;
-  --accent: #c2255c;
+  --accent: #e03131;
   --on-accent: #ffffff;
   --square: #ffffff;
   --filled: #2b2f38;
@@ -34,8 +34,8 @@
     --text: #e8eaee;
     --muted: #9aa1ad;
     --border: #2c3038;
-    --accent: #f06595;
-    --on-accent: #2b0a17;
+    --accent: #ff6b6b;
+    --on-accent: #2b0a0a;
     --square: #1b1e24;
     --filled: #e8eaee;
     --clue: #20242b;
