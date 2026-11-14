@@ -9,6 +9,7 @@ import {
   isSolved,
   newRound,
   recordWin,
+  restart,
   tap,
   type Round,
 } from './game';
@@ -45,6 +46,17 @@ describe('tapping', () => {
     expect(isMiss(r, 0)).toBe(false);
     expect(isMiss(r, 9)).toBe(false);
     expect(isMiss(round([0, 4, 8], [0, 4, 8]), 1)).toBe(false);
+  });
+});
+
+describe('a wrong square', () => {
+  it('starts the pattern over', () => {
+    expect(restart(round([0, 4, 8], [0, 4])).found).toEqual([]);
+  });
+
+  it('leaves a solved pattern as it is', () => {
+    const r = round([0, 4, 8], [0, 4, 8]);
+    expect(restart(r)).toBe(r);
   });
 });
 

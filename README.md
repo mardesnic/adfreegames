@@ -2,7 +2,7 @@
 
 A free pattern game for young kids that works offline. A few squares of a grid light up for a moment, then go dark, and the child taps the same squares from memory. It trains visual memory in a way a five-year-old can enjoy.
 
-Made for ages 5 and up. There is no timer and no way to lose. A wrong square only shakes, and the pattern shows again, with the squares already found staying lit.
+Made for ages 5 and up. There is no timer and no way to lose. A wrong square only shakes, and the pattern shows again to start over.
 
 ## Demo
 

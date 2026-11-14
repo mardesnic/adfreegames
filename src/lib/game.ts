@@ -1,5 +1,6 @@
 // A few squares of a grid light up for a moment. The child taps the same
-// squares from memory. A wrong square shows the pattern again.
+// squares from memory. A wrong square clears what was tapped and shows the
+// pattern again, to start over.
 
 export const LEVELS = ['easy', 'medium', 'hard'] as const;
 export type Level = (typeof LEVELS)[number];
@@ -43,6 +44,10 @@ export function tap(round: Round, square: number): Round {
     return round;
   return { ...round, found: [...round.found, square] };
 }
+
+// After a wrong square: none of the pattern tapped yet.
+export const restart = (round: Round): Round =>
+  isSolved(round) ? round : { ...round, found: [] };
 
 const samePattern = (a: number[], b: number[]) => a.join() === b.join();
 

@@ -13,6 +13,7 @@ import {
   isSolved,
   newRound,
   recordWin,
+  restart,
   showTime,
   tap,
   type Level,
@@ -69,7 +70,8 @@ export default function App() {
     setView('play');
   };
 
-  // Each new game, and each wrong square, shows the pattern: a short wait
+  // Each new game, and each wrong square (which starts it over), shows the
+  // pattern: a short wait
   // on the empty grid, then the pattern lit, then the child's turn.
   const [shows, setShows] = useState(0);
   const [missed, setMissed] = useState<number>();
@@ -110,6 +112,7 @@ export default function App() {
     if (isMiss(round, square)) {
       plop('miss');
       setMissed(square);
+      setStore({ round: restart(round) });
       setShows((n) => n + 1);
       return;
     }
