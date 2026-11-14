@@ -146,7 +146,7 @@ export default function App() {
             <Board round={round} onPour={onPour} t={t} />
           </div>
 
-          {solved ? (
+          {solved && (
             <section className='card solved'>
               <h2>{t.solved}</h2>
               <div className='solved__actions'>
@@ -161,7 +161,11 @@ export default function App() {
                 </button>
               </div>
             </section>
-          ) : (
+          )}
+          <div
+            className={solved ? 'under under--hidden' : 'under'}
+            inert={!!solved}
+          >
             <div className='bar'>
               <div className='tools'>
                 <button
@@ -182,7 +186,7 @@ export default function App() {
                 </button>
               </div>
             </div>
-          )}
+          </div>
         </>
       )}
 
