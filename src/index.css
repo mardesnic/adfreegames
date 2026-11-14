@@ -516,43 +516,12 @@ h2 {
   }
 }
 
-/* Under the board: the four arrows, big enough for small thumbs. */
-
-.bar {
-  display: grid;
-  gap: 8px;
-}
+/* Under the board */
 
 .bar__level {
   font-weight: 650;
   color: var(--muted);
   padding-left: 4px;
-}
-
-.pad {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 8px;
-}
-
-.pad__button {
-  display: grid;
-  place-items: center;
-  height: 64px;
-  border: 0;
-  border-radius: 16px;
-  background: var(--accent);
-  color: var(--on-accent);
-  transition: transform 0.08s;
-}
-
-.pad__button:active {
-  transform: scale(0.94);
-}
-
-.pad__button .icon {
-  width: 32px;
-  height: 32px;
 }
 
 /* Solved */

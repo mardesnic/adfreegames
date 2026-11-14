@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 
-import { move, parse, shortest } from './skeleton';
+import { mirror, move, parse, shortest } from './skeleton';
 
 const at = (x: number, y: number) => y * 5 + x;
 
@@ -40,6 +40,20 @@ describe('move', () => {
   it('wins when they pass each other', () => {
     const open = parse('o', ['.SH..']);
     expect(move(open, { skeleton: 1, skull: 2 }, 'right').won).toBe(true);
+  });
+});
+
+describe('mirror', () => {
+  it('swaps left and right only', () => {
+    expect(mirror('left')).toBe('right');
+    expect(mirror('right')).toBe('left');
+    expect(mirror('up')).toBe('up');
+  });
+
+  it('moving the skull is moving the skeleton the mirrored way', () => {
+    const room = parse('m', ['S...H']);
+    const m = move(room, { skeleton: 0, skull: 4 }, mirror('left'));
+    expect(m.pos).toEqual({ skeleton: 1, skull: 3 });
   });
 });
 

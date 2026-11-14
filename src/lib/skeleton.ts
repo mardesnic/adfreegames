@@ -33,6 +33,10 @@ export const DIRS = {
 
 export type Dir = keyof typeof DIRS;
 
+// The way the other one goes: left and right swap, up and down stay.
+export const mirror = (dir: Dir): Dir =>
+  dir === 'left' ? 'right' : dir === 'right' ? 'left' : dir;
+
 const TILES: Record<string, Tile> = {
   '.': 'floor',
   S: 'floor',

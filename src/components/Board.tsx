@@ -7,6 +7,8 @@ import { CrateArt, LooseSkull, PumpkinArt, SkeletonArt, Web } from './Art';
 // A drag shorter than this is a tap, and does nothing.
 const SWIPE = 24;
 
+export type Who = 'skeleton' | 'skull';
+
 // Who walked into something, counted so each bump shakes again.
 export type Bump = { skeleton: boolean; skull: boolean; n: number };
 
@@ -23,17 +25,28 @@ export function Board({
   pos: Pos;
   won: boolean;
   bump?: Bump;
-  onSwipe: (dir: Dir) => void;
+  // A swipe moves whichever of the two it starts nearer to.
+  onSwipe: (who: Who, dir: Dir) => void;
   // The skull is back on and the dance is over.
   onDanced: () => void;
   t: Strings;
 }) {
-  const down = useRef<{ x: number; y: number } | null>(null);
+  const down = useRef<{ x: number; y: number; who: Who } | null>(null);
+
+  const nearer = (e: React.PointerEvent): Who => {
+    const box = e.currentTarget.getBoundingClientRect();
+    const unit = box.width / level.width;
+    const x = (e.clientX - box.left) / unit - 0.5;
+    const y = (e.clientY - box.top) / unit - 0.5;
+    const away = (i: number) =>
+      Math.hypot((i % level.width) - x, Math.floor(i / level.width) - y);
+    return away(pos.skull) < away(pos.skeleton) ? 'skull' : 'skeleton';
+  };
 
   const onDown = (e: React.PointerEvent) => {
     if (won || !e.isPrimary) return;
     e.currentTarget.setPointerCapture(e.pointerId);
-    down.current = { x: e.clientX, y: e.clientY };
+    down.current = { x: e.clientX, y: e.clientY, who: nearer(e) };
   };
 
   const onUp = (e: React.PointerEvent) => {
@@ -43,8 +56,9 @@ export function Board({
     const dx = e.clientX - start.x;
     const dy = e.clientY - start.y;
     if (Math.hypot(dx, dy) < SWIPE) return;
-    if (Math.abs(dx) > Math.abs(dy)) onSwipe(dx < 0 ? 'left' : 'right');
-    else onSwipe(dy < 0 ? 'up' : 'down');
+    if (Math.abs(dx) > Math.abs(dy))
+      onSwipe(start.who, dx < 0 ? 'left' : 'right');
+    else onSwipe(start.who, dy < 0 ? 'up' : 'down');
   };
 
   const place = (i: number) =>
@@ -53,7 +67,7 @@ export function Board({
       '--y': Math.floor(i / level.width),
     }) as CSSProperties;
 
-  const shake = (who: 'skeleton' | 'skull') =>
+  const shake = (who: Who) =>
     bump?.[who] ? `sprite__body sprite__body--stuck` : 'sprite__body';
 
   return (

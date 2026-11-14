@@ -1,4 +1,4 @@
-import type { Dir, Tile } from './skeleton';
+import type { Tile } from './skeleton';
 
 export const LANGS = ['en', 'hr'] as const;
 export type Lang = (typeof LANGS)[number];
@@ -20,12 +20,6 @@ const en = {
   settings: 'Settings',
   close: 'Close',
   level: (n: number) => `Level ${n}`,
-  dirs: {
-    left: 'Left',
-    up: 'Up',
-    down: 'Down',
-    right: 'Right',
-  } as Record<Dir, string>,
   tiles: {
     floor: 'Floor',
     crate: 'Crate',
@@ -61,12 +55,6 @@ const hr: Strings = {
   settings: 'Postavke',
   close: 'Zatvori',
   level: (n: number) => `Razina ${n}`,
-  dirs: {
-    left: 'Lijevo',
-    up: 'Gore',
-    down: 'Dolje',
-    right: 'Desno',
-  },
   tiles: {
     floor: 'Pod',
     crate: 'Sanduk',

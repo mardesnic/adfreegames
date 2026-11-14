@@ -1,6 +1,6 @@
 # Skeleton
 
-A free puzzle game for young kids that works offline. In a haunted house, a skeleton has lost its head. The child moves the skeleton with the arrows, and its skull rolls along like a mirror: the same way up and down, but the other way left and right. Crates, pumpkins and the walls stop only the one who walks into them. When the two meet, the skull hops back on and the skeleton dances. There is no timer and no way to lose.
+A free puzzle game for young kids that works offline. In a haunted house, a skeleton has lost its head. The child swipes the skeleton or its skull, and that one goes the way of the swipe while the other goes like a mirror: the same way up and down, but the other way left and right. Crates, pumpkins and the walls stop only the one who walks into them. When the two meet, the skull hops back on and the skeleton dances. There is no timer and no way to lose.
 
 ## Demo
 
@@ -11,7 +11,7 @@ On your phone, open it and choose **Add to Home Screen** (Safari) or **Install a
 ## Features
 
 - Hand-made levels, from just walking towards each other to using crates and walls to hold one still
-- Big arrows under the board, or swipe on the board
+- Swipe the skeleton or the skull, whichever the swipe starts nearer to
 - Every level can be won, and no move ever leaves it unwinnable (checked by a test)
 - Made for holding the phone upright
 - Picks up where you left off after a reload

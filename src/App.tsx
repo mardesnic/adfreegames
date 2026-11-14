@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-import { Board, type Bump } from './components/Board';
+import { Board, type Bump, type Who } from './components/Board';
 import { Confetti } from './components/Confetti';
 import { HomeLink } from './components/HomeLink';
 import { Icon } from './components/Icon';
@@ -16,7 +16,7 @@ import {
 } from './lib/game';
 import { STRINGS, detectLang } from './lib/i18n';
 import { LEVELS, levelById } from './lib/levels';
-import { DIRS, type Dir } from './lib/skeleton';
+import { mirror, type Dir } from './lib/skeleton';
 import { popMenu, pushMenu, useBackButton } from './lib/use-back-button';
 import { useCheer } from './lib/use-cheer';
 import { useLanguage, useSound } from './lib/use-shared-settings';
@@ -69,6 +69,9 @@ export default function App() {
     document.documentElement.lang = lang;
     document.title = t.title;
   }, [lang, t]);
+
+  // The skull swiped one way is the skeleton going the mirrored way.
+  const swipe = (who: Who, dir: Dir) => go(who === 'skull' ? mirror(dir) : dir);
 
   const go = (dir: Dir) => {
     const { game: next, move } = play(game, dir);
@@ -162,7 +165,7 @@ export default function App() {
               pos={game.pos}
               won={game.won}
               bump={bump}
-              onSwipe={go}
+              onSwipe={swipe}
               onDanced={() => {
                 setDanced(true);
                 setCelebrating(true);
@@ -190,18 +193,6 @@ export default function App() {
           >
             <div className='bar'>
               <span className='bar__level'>{t.level(n)}</span>
-              <div className='pad'>
-                {(Object.keys(DIRS) as Dir[]).map((d) => (
-                  <button
-                    key={d}
-                    className='pad__button'
-                    onClick={() => go(d)}
-                    aria-label={t.dirs[d]}
-                  >
-                    <Icon name={d} />
-                  </button>
-                ))}
-              </div>
             </div>
           </div>
         </>
