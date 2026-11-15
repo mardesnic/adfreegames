@@ -4,11 +4,6 @@ A free picture logic puzzle for young kids that works offline. The numbers next 
 
 Made for ages 5 and up. There is no timer and no way to lose. Undo takes back the last move, and Start over clears the grid.
 
-## Demo
-
-Check out the live demo at: https://mardesnic.github.io/des-pixeldoku/
-
-On your phone, open it and choose **Add to Home Screen** (Safari) or **Install app** (Chrome). It then opens like an app and works offline.
 
 ## Features
 
@@ -25,16 +20,3 @@ On your phone, open it and choose **Add to Home Screen** (Safari) or **Install a
 - In English and Croatian, following the phone's language unless you pick one
 - Light and dark mode
 - No ads, accounts or tracking
-
-## Development
-
-```bash
-npm install
-npm run dev        # local dev server
-npm test           # game and translation tests
-npm run build      # production build in dist/
-```
-
-`npm run deploy` builds the app and publishes it to GitHub Pages.
-
-The pictures are drawn as text in `src/lib/pictures.ts`, one letter a square for its colour. The tests check that each one can be solved one line at a time.

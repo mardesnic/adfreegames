@@ -34,7 +34,16 @@ describe('games', () => {
 
   it('link to the game and its icon', () => {
     const g = GAMES[0];
-    expect(gameUrl(g)).toMatch(new RegExp(`/des-${g.slug}/$`));
-    expect(iconUrl(g)).toMatch(new RegExp(`/des-${g.slug}/favicon\\.svg$`));
+    expect(gameUrl(g)).toMatch(new RegExp(`/games/${g.slug}/$`));
+    expect(iconUrl(g)).toMatch(new RegExp(`/games/${g.slug}/favicon\\.svg$`));
+  });
+
+  it('have a page and an icon for every game', () => {
+    const pages = Object.keys(import.meta.glob('/games/*/index.html'));
+    const icons = Object.keys(import.meta.glob('/public/games/*/favicon.svg'));
+    for (const g of GAMES) {
+      expect(pages).toContain(`/games/${g.slug}/index.html`);
+      expect(icons).toContain(`/public/games/${g.slug}/favicon.svg`);
+    }
   });
 });

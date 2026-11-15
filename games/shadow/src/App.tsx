@@ -377,7 +377,7 @@ export default function App() {
           />
           <footer className='footer'>
             <a href='/des-kids-games/'>{t.allGames}</a>
-            <a href='https://github.com/mardesnic/des-shadow'>{t.source}</a>
+            <a href='https://github.com/mardesnic/des-kids-games/tree/main/games/shadow'>{t.source}</a>
             <span className='footer__version'>
               {t.version} {__VERSION__}
             </span>

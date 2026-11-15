@@ -1,11 +1,11 @@
 import type { Lang } from './i18n';
 
 export type Game = {
-  // The repo is des-<slug>, live at /des-<slug>/ on the same site.
+  // The game's folder, games/<slug>/, and its page at games/<slug>/.
   slug: string;
   name: Record<Lang, string>;
   about: Record<Lang, string>;
-  // The game's theme colour, from its vite.config.ts.
+  // The game's theme colour.
   colour: string;
   // Only ready games get a card. Set it to true when a game is done.
   ready: boolean;
@@ -199,9 +199,8 @@ export const GAMES: Game[] = [
 export const readyGames = (games: Game[] = GAMES) =>
   games.filter((g) => g.ready);
 
-// Every game lives on the same site as this page. While developing, the
-// links and icons point at the live site instead.
-const SITE = import.meta.env.DEV ? 'https://mardesnic.github.io' : '';
+// Every game is a page of this app, in games/<slug>/.
+const BASE = import.meta.env.BASE_URL;
 
-export const gameUrl = (g: Game) => `${SITE}/des-${g.slug}/`;
-export const iconUrl = (g: Game) => `${SITE}/des-${g.slug}/favicon.svg`;
+export const gameUrl = (g: Game) => `${BASE}games/${g.slug}/`;
+export const iconUrl = (g: Game) => `${BASE}games/${g.slug}/favicon.svg`;

@@ -6,11 +6,6 @@ Two kids can also play together: put the phone or tablet flat on the table betwe
 
 Made for ages 5 and up. There is no timer, and two players don't play against each other: the song is theirs together. A wrong note ends the song, which then plays once more from start to end, and you can try to beat your longest song.
 
-## Demo
-
-Check out the live demo at: https://mardesnic.github.io/des-echo/
-
-On your phone, open it and choose **Add to Home Screen** (Safari) or **Install app** (Chrome). It then opens like an app and works offline.
 
 ## Features
 
@@ -28,16 +23,3 @@ On your phone, open it and choose **Add to Home Screen** (Safari) or **Install a
 - In English and Croatian, following the phone's language unless you pick one
 - Light and dark mode
 - No ads, accounts or tracking
-
-## Development
-
-```bash
-npm install
-npm run dev        # local dev server
-npm test           # game and translation tests
-npm run build      # production build in dist/
-```
-
-`npm run deploy` builds the app and publishes it to GitHub Pages.
-
-The game rules are in `src/lib/echo.ts`. All sounds are made with Web Audio in `src/lib/sound.ts`, so there are no sound files.

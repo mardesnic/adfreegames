@@ -2,11 +2,6 @@
 
 A free sudoku that works offline. It makes a new puzzle every time, in six difficulty levels, and every puzzle has exactly one solution.
 
-## Demo
-
-Check out the live demo at: https://mardesnic.github.io/des-sudoku/
-
-On your phone, open it and choose **Add to Home Screen** (Safari) or **Install app** (Chrome). It then opens like an app and works offline.
 
 ## Features
 
@@ -24,14 +19,3 @@ On your phone, open it and choose **Add to Home Screen** (Safari) or **Install a
 - In English and Croatian, following the phone's language unless you pick one
 - Light and dark mode, plus Narwhal and Blocks themes
 - No ads, accounts or tracking
-
-## Development
-
-```bash
-npm install
-npm run dev        # local dev server
-npm test           # generator, solver, game and translation tests
-npm run build      # production build in dist/
-```
-
-`npm run deploy` builds the app and publishes it to GitHub Pages.

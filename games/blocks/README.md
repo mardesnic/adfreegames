@@ -4,11 +4,6 @@ A free sliding block puzzle for young kids that works offline. The star block is
 
 Made for ages 5 and up. There is no timer and no way to lose. Undo takes back the last move, and Start over puts the blocks back where they began.
 
-## Demo
-
-Check out the live demo at: https://mardesnic.github.io/des-blocks/
-
-On your phone, open it and choose **Add to Home Screen** (Safari) or **Install app** (Chrome). It then opens like an app and works offline.
 
 ## Features
 
@@ -26,20 +21,3 @@ On your phone, open it and choose **Add to Home Screen** (Safari) or **Install a
 - In English and Croatian, following the phone's language unless you pick one
 - Light and dark mode
 - No ads, accounts or tracking
-
-## Development
-
-```bash
-npm install
-npm run dev        # local dev server
-npm test           # level and translation tests
-npm run build      # production build in dist/
-```
-
-`npm run deploy` builds the app and publishes it to GitHub Pages.
-
-The levels live in `src/levels/`. Good puzzles are rare among random layouts and take minutes to find, too long for a phone, so `scripts/make-levels.mjs` finds them once and they ship with the app. To make a new set for one difficulty:
-
-```bash
-node scripts/make-levels.mjs hard 150 600   # difficulty, how many, seconds to search
-```

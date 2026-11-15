@@ -1,4 +1,6 @@
 import { execSync } from 'node:child_process';
+import { readdirSync } from 'node:fs';
+import { resolve } from 'node:path';
 
 import react from '@vitejs/plugin-react';
 import { defineConfig } from 'vite';
@@ -19,18 +21,31 @@ const version =
     .filter(Boolean)
     .join(' · ') || 'dev';
 
+// Every game is its own page under games/<slug>/, so each keeps its own
+// styles, but they are built, installed and kept offline together.
+const games = readdirSync(resolve(import.meta.dirname, 'games'));
+const input = Object.fromEntries([
+  ['main', resolve(import.meta.dirname, 'index.html')],
+  ...games.map((g) => [
+    g,
+    resolve(import.meta.dirname, 'games', g, 'index.html'),
+  ]),
+]);
+
 export default defineConfig({
   define: { __VERSION__: JSON.stringify(version) },
   base: '/des-kids-games/',
+  build: { rollupOptions: { input } },
   plugins: [
     react(),
     // Installable from the browser menu, and works offline once loaded.
     VitePWA({
       registerType: 'autoUpdate',
-      pwaAssets: { config: true },
+      // The icons' links are in index.html, so a game's page keeps its own.
+      pwaAssets: { config: true, includeHtmlHeadLinks: false },
       manifest: {
         // A fixed id of its own, so a phone never mixes it up with an earlier
-        // install or with the games on this site.
+        // install.
         id: 'des-kids-games',
         name: 'Games',
         short_name: 'Games',
@@ -39,28 +54,14 @@ export default defineConfig({
         background_color: '#f4f5f7',
         display: 'standalone',
         start_url: '/des-kids-games/',
-        // The whole site, not just this page: a game opened from a card stays
-        // in this app's window (no address bar), and Back comes back here.
-        // The service worker below still only looks after /des-kids-games/, so it
-        // never gets in the way of a game's own one.
-        scope: '/',
+        // The games are pages inside this app: a game opened from a card
+        // stays in its window (no address bar), and Back comes back here.
+        scope: '/des-kids-games/',
       },
       workbox: {
-        // Keep the games' icons, so the cards look right offline too. Online,
-        // each icon is checked with its game first (a quick "not changed"
-        // most times), so a game's new icon shows on the next open instead
-        // of after one more; the kept copy is used only offline.
-        runtimeCaching: [
-          {
-            urlPattern: /\/des-[a-z-]+\/favicon\.svg$/,
-            handler: 'NetworkFirst',
-            options: {
-              cacheName: 'game-icons',
-              networkTimeoutSeconds: 3,
-              fetchOptions: { cache: 'no-cache' },
-            },
-          },
-        ],
+        // Every game, its icon and its pictures, so they all work offline.
+        globPatterns: ['**/*.{js,css,html,svg,webp,png,ico}'],
+        maximumFileSizeToCacheInBytes: 5 * 1024 * 1024,
       },
     }),
   ],
