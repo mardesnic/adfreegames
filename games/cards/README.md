@@ -1,4 +1,4 @@
-# Memory
+# Cards
 
 A free memory game for young kids that works offline. Cards lie face down, two of each picture. The child turns over two at a time: a pair stays face up, and two different pictures turn back over, so remember where they were. The game is done when every pair is found.
 

@@ -268,7 +268,7 @@ export default function App() {
       {view === 'settings' && (
         <footer className='footer'>
           <a href={import.meta.env.BASE_URL}>{t.allGames}</a>
-          <a href='https://github.com/mardesnic/des-kids-games/tree/main/games/elements'>
+          <a href='https://github.com/mardesnic/adfreegames/tree/main/games/elements'>
             {t.source}
           </a>
           <span className='footer__version'>

@@ -15,8 +15,8 @@ export type Game = {
 // child needs to know to start (reading, sums) and how hard the easiest level is.
 export const GAMES: Game[] = [
   {
-    slug: 'memory',
-    name: { en: 'Memory', hr: 'Memori' },
+    slug: 'cards',
+    name: { en: 'Cards', hr: 'Kartice' },
     about: {
       en: 'Turn over the cards and find the pairs.',
       hr: 'Okreni karte i pronađi parove.',

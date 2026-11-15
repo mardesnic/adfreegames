@@ -51,7 +51,7 @@ export default defineConfig({
       manifest: {
         // A fixed id of its own, so a phone never mixes it up with an earlier
         // install.
-        id: 'des-kids-games',
+        id: 'adfreegames',
         name: 'AdFreeGames',
         short_name: 'AdFreeGames',
         description: 'Free games for kids',

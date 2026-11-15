@@ -1,4 +1,4 @@
-// The des-kids-games icon: takes the player to the list of all games.
+// The AdFreeGames icon: takes the player to the list of all games.
 export function HomeLink({ label }: { label: string }) {
   return (
     <a className='home-link' href={import.meta.env.BASE_URL} aria-label={label}>

@@ -152,7 +152,7 @@ function SettingsView({
       </section>
 
       <footer className='footer'>
-        <a href='https://github.com/mardesnic/des-kids-games'>{t.source}</a>
+        <a href='https://github.com/mardesnic/adfreegames'>{t.source}</a>
         <span className='footer__version'>
           {t.version} {__VERSION__}
         </span>

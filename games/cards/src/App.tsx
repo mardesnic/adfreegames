@@ -29,10 +29,8 @@ import { useWakeLock } from '@shared/use-wake-lock';
 type View = 'play' | 'new' | 'settings';
 
 export default function App() {
-  // Keys are prefixed: other apps on the same GitHub Pages origin share
-  // this storage.
-  const [store, setStore] = useStoredState<Store>('memory', initialStore);
-  const [stats, setStats] = useStoredState<Stats>('memory-stats', initialStats);
+  const [store, setStore] = useStoredState<Store>('cards', initialStore);
+  const [stats, setStats] = useStoredState<Stats>('cards-stats', initialStats);
 
   const [language, setLanguage] = useLanguage();
   const lang = language === 'auto' ? detectLang() : language;
@@ -183,7 +181,7 @@ export default function App() {
       {view === 'settings' && (
         <footer className='footer'>
           <a href={import.meta.env.BASE_URL}>{t.allGames}</a>
-          <a href='https://github.com/mardesnic/des-kids-games/tree/main/games/memory'>
+          <a href='https://github.com/mardesnic/adfreegames/tree/main/games/cards'>
             {t.source}
           </a>
           <span className='footer__version'>
