@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 
+import { pageTitle } from '@shared/page-title';
 import { HomeLink } from '@shared/HomeLink';
 import { Confetti } from '@shared/Confetti';
 import { Icon } from '@shared/Icon';
@@ -72,7 +73,7 @@ export default function App() {
   const t = STRINGS[lang];
   useEffect(() => {
     document.documentElement.lang = lang;
-    document.title = t.title;
+    document.title = pageTitle(t.title, lang);
   }, [lang, t]);
 
   // Every timer, so a new song can stop whatever is still playing.

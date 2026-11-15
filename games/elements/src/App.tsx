@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 
 import { Board, type Bump } from './components/Board';
+import { pageTitle } from '@shared/page-title';
 import { HomeLink } from '@shared/HomeLink';
 import { Confetti } from '@shared/Confetti';
 import { Solved } from '@shared/Solved';
@@ -73,7 +74,7 @@ export default function App() {
   const t = STRINGS[lang];
   useEffect(() => {
     document.documentElement.lang = lang;
-    document.title = t.title;
+    document.title = pageTitle(t.title, lang);
   }, [lang, t]);
 
   // A walk plays out a step at a time.

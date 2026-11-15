@@ -21,7 +21,7 @@ export default function App() {
   const t = STRINGS[lang];
   useEffect(() => {
     document.documentElement.lang = lang;
-    document.title = t.title;
+    document.title = t.pageTitle;
   }, [lang, t]);
 
   const [view, setViewState] = useState<View>('list');

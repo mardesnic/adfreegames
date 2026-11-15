@@ -15,6 +15,7 @@ export function detectLang(): Lang {
 
 const en = {
   title: 'AdFreeGames',
+  pageTitle: 'AdFreeGames – free games for kids, no ads',
   settings: 'Settings',
   close: 'Close',
   language: 'Language',
@@ -34,6 +35,7 @@ export type Strings = typeof en;
 
 const hr: Strings = {
   title: 'AdFreeGames',
+  pageTitle: 'AdFreeGames – besplatne igre za djecu, bez reklama',
   settings: 'Postavke',
   close: 'Zatvori',
   language: 'Jezik',

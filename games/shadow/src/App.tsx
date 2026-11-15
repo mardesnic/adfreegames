@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 
 import { Board, STEP_MS } from './components/Board';
+import { pageTitle } from '@shared/page-title';
 import { Confetti } from '@shared/Confetti';
 import { Solved } from '@shared/Solved';
 import { HomeLink } from '@shared/HomeLink';
@@ -112,7 +113,7 @@ export default function App() {
   const t = STRINGS[lang];
   useEffect(() => {
     document.documentElement.lang = lang;
-    document.title = t.title;
+    document.title = pageTitle(t.title, lang);
   }, [lang, t]);
 
   const [view, setViewState] = useState<View>('play');

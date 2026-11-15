@@ -1,3 +1,4 @@
+import { pageTitle } from '@shared/page-title';
 import { HomeLink } from '@shared/HomeLink';
 import { useEffect, useState } from 'react';
 
@@ -50,7 +51,7 @@ export default function App() {
   const t = STRINGS[lang];
   useEffect(() => {
     document.documentElement.lang = lang;
-    document.title = t.title;
+    document.title = pageTitle(t.title, lang);
   }, [lang, t]);
 
   const start = (difficulty: Difficulty) => {

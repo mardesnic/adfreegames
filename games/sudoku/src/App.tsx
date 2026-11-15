@@ -1,6 +1,7 @@
 import { useEffect, useState, type CSSProperties } from 'react';
 
 import { Board } from './components/Board';
+import { pageTitle } from '@shared/page-title';
 import { HomeLink } from '@shared/HomeLink';
 import { Confetti } from '@shared/Confetti';
 import { Solved } from '@shared/Solved';
@@ -73,6 +74,7 @@ export default function App() {
   const t = STRINGS[lang];
   useEffect(() => {
     document.documentElement.lang = lang;
+    document.title = pageTitle('Sudoku', lang);
   }, [lang]);
 
   useEffect(() => {

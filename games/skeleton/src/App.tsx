@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 
 import { Board, type Bump, type Who } from './components/Board';
+import { pageTitle } from '@shared/page-title';
 import { Confetti } from '@shared/Confetti';
 import { Solved } from '@shared/Solved';
 import { HomeLink } from '@shared/HomeLink';
@@ -70,7 +71,7 @@ export default function App() {
   const t = STRINGS[lang];
   useEffect(() => {
     document.documentElement.lang = lang;
-    document.title = t.title;
+    document.title = pageTitle(t.title, lang);
   }, [lang, t]);
 
   // The skull swiped one way is the skeleton going the mirrored way.

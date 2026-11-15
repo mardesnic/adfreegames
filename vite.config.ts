@@ -3,7 +3,7 @@ import { readdirSync } from 'node:fs';
 import { resolve } from 'node:path';
 
 import react from '@vitejs/plugin-react';
-import { defineConfig } from 'vite';
+import { defineConfig, type Plugin } from 'vite';
 import { VitePWA } from 'vite-plugin-pwa';
 
 // https://vite.dev/config/
@@ -35,6 +35,64 @@ const input = Object.fromEntries([
   ]),
 ]);
 
+// For search engines and shared links: each page's canonical address and
+// preview card (from its own <title> and description), and a sitemap of the
+// home page and every game.
+const SITE = 'https://adfreegames.eu';
+// The app icon made by pwa-assets.config.ts: keep its prefix the same.
+const SHARE_IMAGE = `${SITE}${BASE}shapes2-pwa-512x512.png`;
+const pageUrl = (game?: string) =>
+  `${SITE}${BASE}${game ? `games/${game}/` : ''}`;
+const escape = (s: string) => s.replace(/&/g, '&amp;').replace(/"/g, '&quot;');
+
+const seo = (): Plugin => ({
+  name: 'seo',
+  apply: 'build',
+  transformIndexHtml(html, { path }) {
+    const game = /games\/([^/]+)\//.exec(path)?.[1];
+    const title = /<title>([^<]*)<\/title>/.exec(html)?.[1] ?? 'AdFreeGames';
+    const description =
+      /name="description"\s+content="([^"]*)"/.exec(html)?.[1] ?? '';
+    const url = pageUrl(game);
+    const meta = (property: string, content: string) => ({
+      tag: 'meta',
+      attrs: { property, content },
+      injectTo: 'head' as const,
+    });
+    return [
+      { tag: 'link', attrs: { rel: 'canonical', href: url }, injectTo: 'head' },
+      meta('og:type', 'website'),
+      meta('og:site_name', 'AdFreeGames'),
+      meta('og:title', title),
+      meta('og:description', description),
+      meta('og:url', url),
+      meta('og:image', SHARE_IMAGE),
+      {
+        tag: 'meta',
+        attrs: { name: 'twitter:card', content: 'summary' },
+        injectTo: 'head',
+      },
+    ];
+  },
+  generateBundle() {
+    const urls = [pageUrl(), ...games.map((g) => pageUrl(g))];
+    this.emitFile({
+      type: 'asset',
+      fileName: 'sitemap.xml',
+      source:
+        '<?xml version="1.0" encoding="UTF-8"?>\n' +
+        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
+        urls.map((u) => `  <url><loc>${escape(u)}</loc></url>\n`).join('') +
+        '</urlset>\n',
+    });
+    this.emitFile({
+      type: 'asset',
+      fileName: 'robots.txt',
+      source: `User-agent: *\nAllow: /\n\nSitemap: ${pageUrl()}sitemap.xml\n`,
+    });
+  },
+});
+
 export default defineConfig({
   define: { __VERSION__: JSON.stringify(version) },
   base: BASE,
@@ -43,6 +101,7 @@ export default defineConfig({
   resolve: { alias: { '@shared': resolve(import.meta.dirname, 'shared') } },
   plugins: [
     react(),
+    seo(),
     // Installable from the browser menu, and works offline once loaded.
     VitePWA({
       registerType: 'autoUpdate',
