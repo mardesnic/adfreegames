@@ -4,7 +4,7 @@ import {
   minimal2023Preset as preset,
 } from '@vite-pwa/assets-generator/config';
 
-const background = { resizeOptions: { background: '#2f7d5b' } };
+const background = { resizeOptions: { background: '#3b2d5c' } };
 
 export default defineConfig({
   headLinkOptions: { preset: '2023' },
@@ -14,7 +14,7 @@ export default defineConfig({
     apple: { ...preset.apple, ...background },
     // Phones keep an installed app's icons by file name, so a new icon needs
     // new names: change the prefix whenever public/favicon.svg changes.
-    assetName: (type, size) => `skull-${defaultAssetName(type, size)}`,
+    assetName: (type, size) => `bones-${defaultAssetName(type, size)}`,
   },
   images: ['public/favicon.svg'],
 });
