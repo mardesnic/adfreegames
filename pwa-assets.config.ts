@@ -10,11 +10,15 @@ export default defineConfig({
   headLinkOptions: { preset: '2023' },
   preset: {
     ...preset,
-    maskable: { ...preset.maskable, ...background },
-    apple: { ...preset.apple, ...background },
+    // favicon.svg already has a margin of its own, so the phone icons add
+    // little more: Android's round mask still needs some, iOS needs none.
+    maskable: { ...preset.maskable, ...background, padding: 0.12 },
+    apple: { ...preset.apple, ...background, padding: 0 },
+    // Full colour, not the default 60% palette that makes the edges blurry.
+    png: { compressionLevel: 9, quality: 100, palette: false },
     // Phones keep an installed app's icons by file name, so a new icon needs
-    // new names: change the prefix whenever public/favicon.svg changes.
-    assetName: (type, size) => `shapes-${defaultAssetName(type, size)}`,
+    // new names: change the prefix whenever the phone icons change.
+    assetName: (type, size) => `shapes2-${defaultAssetName(type, size)}`,
   },
   images: ['public/favicon.svg'],
 });
