@@ -842,6 +842,12 @@ h2 {
   stroke: #000 !important;
 }
 
+/* The Zs over a sleeping guard float on their own; the ninja behind shows
+   through them. */
+.cut .guard__zz {
+  display: none;
+}
+
 .ninja__suit {
   fill: var(--suit);
 }

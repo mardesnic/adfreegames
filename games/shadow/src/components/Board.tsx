@@ -881,6 +881,9 @@ export function Board({
                   <ThingShape
                     thing={thing}
                     night={false}
+                    asleep={round.asleep?.includes(
+                      cell(level, thing.x, thing.y)
+                    )}
                     opened={round.opened}
                     wizard={castle}
                   />
