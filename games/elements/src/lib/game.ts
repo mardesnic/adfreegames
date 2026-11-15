@@ -1,0 +1,176 @@
+import {
+  boardOf,
+  elementsIn,
+  isWon,
+  move,
+  neighbours,
+  parse,
+  together,
+  walks,
+  type Element,
+  type Level,
+  type State,
+} from './elements';
+import { LEVELS } from './levels';
+
+export type Game = {
+  level: string;
+  state: State;
+  // The one that moves when a square is tapped.
+  active: Element;
+  won: boolean;
+};
+
+export const levelById = (id: string | undefined): Level | undefined =>
+  LEVELS.find((l) => l.id === id);
+
+export function newGame(level: Level): Game {
+  const state = parse(level);
+  return { level: level.id, state, active: elementsIn(state)[0], won: false };
+}
+
+// Nothing has moved yet.
+export const isFresh = (game: Game) =>
+  JSON.stringify(game.state) === JSON.stringify(parse(levelById(game.level)!));
+
+// A saved game is kept only if its level is still there in the same shape.
+export function savedGame(game: Game | undefined): Game | undefined {
+  const level = levelById(game?.level);
+  if (!level || !game?.state?.tiles) return undefined;
+  const fresh = parse(level);
+  const same =
+    game.state.tiles.length === fresh.tiles.length &&
+    elementsIn(game.state).join() === elementsIn(fresh).join();
+  return same ? game : undefined;
+}
+
+// What a tap or swipe does: the games one after another as someone walks,
+// a step at a time, and who wanted to move but couldn't, so they can shake.
+export type Turn = { steps: Game[]; stuck?: Element };
+
+// What a tap on square i does. On someone, it picks them. Elsewhere, the
+// one picked walks there, or up to an ice, coal or pit there and
+// changes it, or up to a round stone and pushes it.
+// If they can't, they shake; the other one never moves on its own.
+export function tap(
+  game: Game,
+  i: number,
+  level = levelById(game.level)!
+): Turn {
+  if (game.won) return { steps: [] };
+  const s = game.state;
+  const everyone = elementsIn(s);
+  // With both people in their temple, a tap there picks the one not
+  // picked yet.
+  const on = everyone.filter((e) => s.at[e] === i);
+  const there = on.find((e) => e !== game.active) ?? on[0];
+  // One person in the heart temple: the other one, picked, goes in to
+  // them, if it can get there.
+  if (there && s.at[game.active] !== i && together(s, game.active, there, i)) {
+    const steps = walkTo(game, game.active, i, level);
+    if (steps) return { steps };
+  }
+  if (there)
+    return {
+      steps: there === game.active ? [] : [{ ...game, active: there }],
+    };
+  const steps = walkTo(game, game.active, i, level);
+  return steps ? { steps } : { steps: [], stuck: game.active };
+}
+
+// Moves the active one a square up, right, down or left.
+export function nudge(
+  game: Game,
+  dx: number,
+  dy: number,
+  level = levelById(game.level)!
+): Turn {
+  if (game.won) return { steps: [] };
+  const b = boardOf(level);
+  const from = game.state.at[game.active]!;
+  const x = (from % b.width) + dx;
+  const y = Math.floor(from / b.width) + dy;
+  const to = y * b.width + x;
+  const state =
+    x < 0 || y < 0 || x >= b.width || y >= b.height
+      ? game.state
+      : move(b, game.state, game.active, to);
+  if (state === game.state) return { steps: [], stuck: game.active };
+  return { steps: [{ ...game, state, won: isWon(state) }] };
+}
+
+// The squares the active one can walk to, for showing.
+export function reachable(
+  game: Game,
+  level = levelById(game.level)!
+): Set<number> {
+  if (game.won) return new Set();
+  const b = boardOf(level);
+  return new Set(walks(b, game.state, game.active).keys());
+}
+
+// The way for `e` to square i, as one game a step, or undefined if it
+// can't get there.
+function walkTo(
+  game: Game,
+  e: Element,
+  i: number,
+  level: Level
+): Game[] | undefined {
+  const b = boardOf(level);
+  const s = game.state;
+  const from = s.at[e]!;
+  const ways = walks(b, s, e);
+  let path = ways.get(i);
+  if (!path) {
+    // An ice, coal or pit, or a round stone: walk up to it, then into
+    // it to change or push it. Earth next to a stone pushes it straight on
+    // if it can, as staying put is the shortest way.
+    const here = (n: number) => (n === from ? [] : ways.get(n));
+    const changes = (at: number) => {
+      const there = { ...s, at: { ...s.at, [e]: at } };
+      return move(b, there, e, i).tiles !== there.tiles;
+    };
+    const nearest = neighbours(b, i)
+      .map(here)
+      .filter((p): p is number[] => !!p)
+      .filter((p) => changes(p.at(-1) ?? from))
+      .sort((p, q) => p.length - q.length)[0];
+    if (!nearest) return undefined;
+    path = [...nearest, i];
+  }
+  const steps: Game[] = [];
+  let state = s;
+  for (const to of path) {
+    state = move(b, state, e, to);
+    const won = isWon(state);
+    steps.push({ ...game, state, active: e, won });
+    if (won) break;
+  }
+  return steps;
+}
+
+// The ids of the levels won so far.
+export type Progress = string[];
+
+export const recordWin = (progress: Progress, game: Game): Progress =>
+  progress.includes(game.level) ? progress : [...progress, game.level];
+
+// The level after this one, in order; after the last, the first.
+export function nextLevel(current: string): Level {
+  const at = LEVELS.findIndex((l) => l.id === current);
+  return LEVELS[(at + 1) % LEVELS.length];
+}
+
+// Whether a level can be played: the first one, one already won, the one
+// being played, and the one right after a level that's won. A new level
+// opens only by winning the one before it.
+export function isOpen(id: string, progress: Progress, current: string) {
+  const at = LEVELS.findIndex((l) => l.id === id);
+  return (
+    at === 0 ||
+    id === current ||
+    progress.includes(id) ||
+    (at > 0 && progress.includes(LEVELS[at - 1].id))
+  );
+}
