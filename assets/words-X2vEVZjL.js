@@ -1,4 +1,4 @@
-import{a as e,c as t,i as n,n as r,o as i,r as a,s as o,t as s}from"./jsx-runtime-pebkJY5o.js";import{c,i as l,l as u,n as d,o as f,r as p,s as m,t as h,u as g}from"./use-wake-lock-3vEIyzG6.js";import{i as _,r as v}from"./use-cheer-hrPTGiOX.js";var y=t(),b=o(),x=e=>e.trim().split(/\s+/).map(e=>{let[t,n]=e.split(`:`);return{emoji:t,word:n}}),S={en:x(`
+import{a as e,c as t,i as n,n as r,o as i,r as a,s as o,t as s}from"./jsx-runtime-pebkJY5o.js";import{c,i as l,l as u,n as d,o as f,r as p,s as m,t as h,u as g}from"./use-wake-lock-BTN-lHjD.js";import{i as _,r as v}from"./use-cheer-hrPTGiOX.js";var y=t(),b=o(),x=e=>e.trim().split(/\s+/).map(e=>{let[t,n]=e.split(`:`);return{emoji:t,word:n}}),S={en:x(`
   🐱:cat 🐶:dog 🐷:pig 🐮:cow 🐔:hen 🦊:fox 🐝:bee 🐜:ant 🦇:bat 🦉:owl
   🐏:ram 🥚:egg 🥧:pie ☀️:sun 🚌:bus 🚗:car 🎩:hat ☕:cup 🔑:key 🛏️:bed
   👁️:eye 👂:ear 🦵:leg 📦:box 🗺️:map 🖊️:pen 🧊:ice 🍵:tea 🕸️:web 🎀:bow
