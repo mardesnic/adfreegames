@@ -135,6 +135,16 @@ export const GAMES: Game[] = [
     ready: true,
   },
   {
+    slug: 'skeleton',
+    name: { en: 'Skeleton', hr: 'Kostur' },
+    about: {
+      en: 'Bring a headless skeleton back to its skull.',
+      hr: 'Vrati kosturu njegovu glavu.',
+    },
+    colour: '#3b2d5c',
+    ready: true,
+  },
+  {
     slug: 'shadow',
     name: { en: 'Shadow', hr: 'Sjena' },
     about: {
