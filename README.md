@@ -1,6 +1,6 @@
 # Games
 
-All my free games for young kids on one page. Each card opens a game: spelling, shapes, puzzles, numbers and music. No timer, no way to lose and no ads.
+All my free games for young kids in one app. Each card opens a game: spelling, shapes, puzzles, numbers and music. No timer, no way to lose and no ads.
 
 ## Demo
 
@@ -21,13 +21,19 @@ On your phone, open it and choose **Add to Home Screen** (Safari) or **Install a
 
 ## Development
 
+Every game is its own page in `games/<name>/`, with its logic and tests in `src/lib/`. Code all games share (settings, Back button, saving, confetti) is in `shared/`, imported as `@shared/...`. They are built, installed and kept offline together as one app.
+
 ```bash
 npm install
-npm run dev        # local dev server; the cards link to the live games
-npm test           # game list and translation tests
+npm run dev        # local dev server: the list, and each game at /des-kids-games/games/<name>/
+npm test           # every game's tests
+npm run lint
+npm run typecheck
 npm run build      # production build in dist/
 ```
 
-`npm run deploy` builds the page and publishes it to GitHub Pages.
+`npm run deploy` runs the tests, builds the app and publishes it to GitHub Pages.
 
-To add a game, add it to `src/lib/games.ts`, or set `ready: true` on one that is already there.
+Some games ship levels made by a script in `games/<name>/scripts/`; run it from the game's folder (`npm run levels:elements`, `npm run levels:shapes`).
+
+To add a game, put it in `games/<name>/` with its icon in `public/games/<name>/favicon.svg`, and add it to `src/lib/games.ts` with `ready: true` when it is done.

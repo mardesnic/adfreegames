@@ -12,7 +12,9 @@
     "format": "prettier --write .",
     "typecheck": "tsc -b",
     "predeploy": "npm test && npm run build",
-    "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages -d dist",
+    "levels:elements": "cd games/elements && node --experimental-strip-types --no-warnings scripts/make-levels.ts",
+    "levels:shapes": "cd games/shapes && node --experimental-strip-types --no-warnings scripts/make-levels.ts"
   },
   "dependencies": {
     "react": "^19.2.8",
