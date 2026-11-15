@@ -128,6 +128,8 @@ export default function App() {
   };
 
   const drawn = !!game?.paths.some((p) => p.length);
+  // Every pair is joined, but squares are still empty.
+  const hint = !!game && !game.solved && allJoined(game.level, game.paths);
 
   return (
     <main className={view === 'play' && game ? 'app app--play' : 'app'}>
@@ -191,12 +193,7 @@ export default function App() {
             <Board
               level={game.level}
               paths={game.paths}
-              // Every pair is joined but squares are still empty: show them.
-              empty={
-                !game.solved && allJoined(game.level, game.paths)
-                  ? emptyCells(game.level, game.paths)
-                  : []
-              }
+              empty={hint ? emptyCells(game.level, game.paths) : []}
               onDown={down}
               onMove={move}
               onUp={up}
@@ -227,7 +224,7 @@ export default function App() {
             inert={!!game.solved}
           >
             <div className='bar'>
-              <ul className='pairs'>
+              <ul className={hint ? 'pairs pairs--hidden' : 'pairs'}>
                 {game.level.ends.map((_, k) => {
                   const joined = isConnected(game.level, game.paths, k);
                   return (
@@ -240,9 +237,14 @@ export default function App() {
                   );
                 })}
               </ul>
-              {allJoined(game.level, game.paths) && (
-                <p className='fill-hint'>{t.fillAll}</p>
-              )}
+              {/* Always there, in the rings' place, so nothing moves when
+                  it shows. */}
+              <p
+                className={hint ? 'fill-hint' : 'fill-hint fill-hint--hidden'}
+                aria-hidden={!hint}
+              >
+                {t.fillAll}
+              </p>
               <div className='tools'>
                 <button
                   className='tool'

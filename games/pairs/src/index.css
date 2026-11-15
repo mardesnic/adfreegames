@@ -261,13 +261,23 @@ h2 {
   gap: 10px 14px;
 }
 
-/* Shown once every pair is joined but squares are still empty. */
+/* Shown in the rings' place once every pair is joined but squares are
+   still empty. Both stay in the same cell, so its height never changes. */
+.pairs,
 .fill-hint {
-  grid-column: 1 / -1;
+  grid-column: 1;
   grid-row: 1;
+}
+
+.fill-hint {
   margin: 0;
   font-weight: 600;
   color: var(--accent);
+}
+
+.pairs--hidden,
+.fill-hint--hidden {
+  visibility: hidden;
 }
 
 /* One ring per colour, filled in once that pair is joined. */
