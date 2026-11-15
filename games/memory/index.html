@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    <meta
+      name="description"
+      content="Free memory game for kids: turn over two cards at a time and find all the pairs of pictures. Works offline, no ads."
+    />
+    <meta
+      name="theme-color"
+      content="#f4f5f7"
+      media="(prefers-color-scheme: light)"
+    />
+    <meta
+      name="theme-color"
+      content="#121418"
+      media="(prefers-color-scheme: dark)"
+    />
+    <title>Memory</title>
+    <script>
+      // If the game's script can't load (an offline copy saved half way
+      // through an update), drop this game's offline copy and load it
+      // fresh, once. Saved games are in localStorage and are kept.
+      addEventListener(
+        'error',
+        function (e) {
+          var el = e.target;
+          if (!el || el.tagName !== 'SCRIPT' || !('serviceWorker' in navigator))
+            return;
+          if (sessionStorage.getItem('memory-reset')) return;
+          sessionStorage.setItem('memory-reset', '1');
+          var base = location.origin + '/des-memory/';
+          navigator.serviceWorker
+            .getRegistrations()
+            .then(function (rs) {
+              return Promise.all(
+                rs
+                  .filter(function (r) {
+                    return r.scope === base;
+                  })
+                  .map(function (r) {
+                    return r.unregister();
+                  })
+              );
+            })
+            .then(function () {
+              return caches.keys();
+            })
+            .then(function (keys) {
+              return Promise.all(
+                keys
+                  .filter(function (k) {
+                    return k.indexOf(base) !== -1;
+                  })
+                  .map(function (k) {
+                    return caches.delete(k);
+                  })
+              );
+            })
+            .then(function () {
+              location.reload();
+            });
+        },
+        true
+      );
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
