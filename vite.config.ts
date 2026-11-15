@@ -39,8 +39,8 @@ const input = Object.fromEntries([
 // preview card (from its own <title> and description), and a sitemap of the
 // home page and every game.
 const SITE = 'https://adfreegames.eu';
-// The app icon made by pwa-assets.config.ts: keep its prefix the same.
-const SHARE_IMAGE = `${SITE}${BASE}shapes2-pwa-512x512.png`;
+// Wide, so link previews don't crop it; made by scripts/share-image.mjs.
+const SHARE_IMAGE = `${SITE}${BASE}share-1200x630.png`;
 const pageUrl = (game?: string) =>
   `${SITE}${BASE}${game ? `games/${game}/` : ''}`;
 const escape = (s: string) => s.replace(/&/g, '&amp;').replace(/"/g, '&quot;');
@@ -67,9 +67,11 @@ const seo = (): Plugin => ({
       meta('og:description', description),
       meta('og:url', url),
       meta('og:image', SHARE_IMAGE),
+      meta('og:image:width', '1200'),
+      meta('og:image:height', '630'),
       {
         tag: 'meta',
-        attrs: { name: 'twitter:card', content: 'summary' },
+        attrs: { name: 'twitter:card', content: 'summary_large_image' },
         injectTo: 'head',
       },
     ];
