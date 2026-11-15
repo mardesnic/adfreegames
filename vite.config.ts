@@ -21,6 +21,9 @@ const version =
     .filter(Boolean)
     .join(' · ') || 'dev';
 
+// Where the app lives on the site.
+const BASE = '/des-kids-games/';
+
 // Every game is its own page under games/<slug>/, so each keeps its own
 // styles, but they are built, installed and kept offline together.
 const games = readdirSync(resolve(import.meta.dirname, 'games'));
@@ -34,7 +37,7 @@ const input = Object.fromEntries([
 
 export default defineConfig({
   define: { __VERSION__: JSON.stringify(version) },
-  base: '/des-kids-games/',
+  base: BASE,
   build: { rollupOptions: { input } },
   // Code every game uses, in shared/.
   resolve: { alias: { '@shared': resolve(import.meta.dirname, 'shared') } },
@@ -55,10 +58,10 @@ export default defineConfig({
         theme_color: '#1971c2',
         background_color: '#f4f5f7',
         display: 'standalone',
-        start_url: '/des-kids-games/',
+        start_url: BASE,
         // The games are pages inside this app: a game opened from a card
         // stays in its window (no address bar), and Back comes back here.
-        scope: '/des-kids-games/',
+        scope: BASE,
       },
       workbox: {
         // Every game, its icon and its pictures, so they all work offline.

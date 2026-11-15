@@ -1,7 +1,7 @@
 // The des-kids-games icon: takes the player to the list of all games.
 export function HomeLink({ label }: { label: string }) {
   return (
-    <a className='home-link' href='/des-kids-games/' aria-label={label}>
+    <a className='home-link' href={import.meta.env.BASE_URL} aria-label={label}>
       <svg viewBox='0 0 64 64' aria-hidden='true'>
         <rect width='64' height='64' rx='14' fill='#1971c2' />
         <rect x='7' y='20' width='50' height='26' rx='13' fill='#fff' />

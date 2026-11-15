@@ -215,7 +215,7 @@ export default function App() {
 
       {view === 'settings' && (
         <footer className='footer'>
-          <a href='/des-kids-games/'>{t.allGames}</a>
+          <a href={import.meta.env.BASE_URL}>{t.allGames}</a>
           <a href='https://github.com/mardesnic/des-kids-games/tree/main/games/pixeldoku'>
             {t.source}
           </a>
