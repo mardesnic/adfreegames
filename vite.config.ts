@@ -35,7 +35,7 @@ export default defineConfig({
         name: 'Skeleton',
         short_name: 'Skeleton',
         description: 'A mirror puzzle for kids that works offline',
-        theme_color: '#2f7d5b',
+        theme_color: '#3b2d5c',
         background_color: '#f4f5f7',
         display: 'standalone',
       },
