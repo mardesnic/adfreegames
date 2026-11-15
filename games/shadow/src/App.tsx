@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 
 import { Board, STEP_MS } from './components/Board';
 import { Confetti } from '@shared/Confetti';
+import { Solved } from '@shared/Solved';
 import { HomeLink } from '@shared/HomeLink';
 import { Icon } from './components/Icon';
 import { Levels } from './components/Levels';
@@ -419,28 +420,22 @@ export default function App() {
           </div>
 
           {solved && (
-            <section
-              className='card solved'
-              style={{ animationDelay: `${cardWait}ms` }}
-            >
-              <h2>{last ? t.finale : t.solved}</h2>
-              <div className='solved__actions'>
-                {!last && (
-                  <button
-                    className='button'
-                    onClick={() => start(nextLevel(round.level.id).id)}
-                  >
-                    {t.next}
-                  </button>
-                )}
-                <button
-                  className='button button--secondary'
-                  onClick={() => setView('levels')}
-                >
-                  {t.changeLevel}
-                </button>
-              </div>
-            </section>
+            <Solved
+              title={last ? t.finale : t.solved}
+              next={
+                last
+                  ? undefined
+                  : {
+                      label: t.next,
+                      onClick: () => start(nextLevel(round.level.id).id),
+                    }
+              }
+              change={{
+                label: t.changeLevel,
+                onClick: () => setView('levels'),
+              }}
+              delay={cardWait}
+            />
           )}
         </>
       )}

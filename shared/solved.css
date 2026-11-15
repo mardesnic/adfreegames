@@ -1,0 +1,45 @@
+/* The "Bravo!" card, the same in every game. It uses the game's own tokens
+   (--surface, --accent…) and its .card and .button styles. `.card.solved`
+   wins over the game's `.card`, whichever stylesheet loads first. */
+
+.card.solved {
+  text-align: center;
+  gap: 8px;
+  animation: solved-pop 0.3s ease-out both;
+  position: fixed;
+  z-index: 5;
+  left: 50%;
+  bottom: calc(16px + env(safe-area-inset-bottom));
+  width: min(420px, calc(100% - 32px));
+  translate: -50% 0;
+  box-shadow: 0 10px 40px rgb(0 0 0 / 0.25);
+}
+
+.card.solved h2 {
+  font-size: 1.6rem;
+}
+
+.solved__name {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+.solved__actions {
+  display: grid;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+@keyframes solved-pop {
+  from {
+    transform: scale(0.85);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card.solved {
+    animation: none !important;
+  }
+}

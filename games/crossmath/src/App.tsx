@@ -3,6 +3,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { Board, NumberPad, Tiles, type Wobble } from './components/Board';
 import { HomeLink } from '@shared/HomeLink';
 import { Confetti } from '@shared/Confetti';
+import { Solved } from '@shared/Solved';
 import { Icon } from './components/Icon';
 import { NewGame, SettingsView } from './components/Menu';
 import {
@@ -235,23 +236,14 @@ export default function App() {
           />
 
           {game.solved && (
-            <section className='card solved'>
-              <h2>{t.solved}</h2>
-              <div className='solved__actions'>
-                <button
-                  className='button'
-                  onClick={() => start(nextLevel(game.level))}
-                >
-                  {t.next}
-                </button>
-                <button
-                  className='button button--secondary'
-                  onClick={() => setView('new')}
-                >
-                  {t.changeLevel}
-                </button>
-              </div>
-            </section>
+            <Solved
+              title={t.solved}
+              next={{
+                label: t.next,
+                onClick: () => start(nextLevel(game.level)),
+              }}
+              change={{ label: t.changeLevel, onClick: () => setView('new') }}
+            />
           )}
           <div
             className={game.solved ? 'under under--hidden' : 'under'}

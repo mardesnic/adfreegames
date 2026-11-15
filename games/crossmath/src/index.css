@@ -463,20 +463,6 @@ h2 {
   font-size: 0.95rem;
 }
 
-.solved {
-  text-align: center;
-  gap: 8px;
-  animation: pop 0.3s ease-out both;
-  /* Over the game, so nothing below it moves. */
-  position: fixed;
-  z-index: 5;
-  left: 50%;
-  bottom: calc(16px + env(safe-area-inset-bottom));
-  width: min(420px, calc(100% - 32px));
-  translate: -50% 0;
-  box-shadow: 0 10px 40px rgb(0 0 0 / 0.25);
-}
-
 /* What is under the board stays in its place, hidden, under Well done. */
 .under {
   display: contents;
@@ -484,16 +470,6 @@ h2 {
 
 .under--hidden {
   visibility: hidden;
-}
-
-.solved h2 {
-  font-size: 1.5rem;
-}
-
-.solved__actions {
-  display: grid;
-  gap: 8px;
-  margin-top: 8px;
 }
 
 /* New game */
@@ -562,7 +538,6 @@ h2 {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .solved,
   .sq__in--wobble {
     animation: none !important;
   }

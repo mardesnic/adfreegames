@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { Board } from './components/Board';
 import { HomeLink } from '@shared/HomeLink';
 import { Confetti } from '@shared/Confetti';
+import { Solved } from '@shared/Solved';
 import { Icon } from './components/Icon';
 import { NewGame, SettingsView } from './components/Menu';
 import { Program } from './components/Program';
@@ -242,26 +243,18 @@ export default function App() {
           </div>
 
           {game.solved && (
-            <section className='card solved'>
-              <h2>{t.solved}</h2>
+            <Solved
+              title={t.solved}
+              next={{
+                label: t.next,
+                onClick: () => start(game.level.difficulty),
+              }}
+              change={{ label: t.changeLevel, onClick: () => setView('new') }}
+            >
               <p className='muted'>
                 {game.tries ? t.tries(game.tries + 1) : t.firstTry}
               </p>
-              <div className='solved__actions'>
-                <button
-                  className='button'
-                  onClick={() => start(game.level.difficulty)}
-                >
-                  {t.next}
-                </button>
-                <button
-                  className='button button--secondary'
-                  onClick={() => setView('new')}
-                >
-                  {t.changeLevel}
-                </button>
-              </div>
-            </section>
+            </Solved>
           )}
           <div
             className={game.solved ? 'under under--hidden' : 'under'}

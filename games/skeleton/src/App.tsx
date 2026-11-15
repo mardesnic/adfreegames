@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 
 import { Board, type Bump, type Who } from './components/Board';
 import { Confetti } from '@shared/Confetti';
+import { Solved } from '@shared/Solved';
 import { HomeLink } from '@shared/HomeLink';
 import { Icon } from './components/Icon';
 import { Levels } from './components/Levels';
@@ -195,23 +196,17 @@ export default function App() {
           </div>
 
           {game.won && danced && (
-            <section className='card solved'>
-              <h2>{last ? t.finale : t.solved}</h2>
-              <div className='solved__actions'>
-                <button
-                  className='button'
-                  onClick={() => start(nextLevel(level.id))}
-                >
-                  {t.next}
-                </button>
-                <button
-                  className='button button--secondary'
-                  onClick={() => setView('levels')}
-                >
-                  {t.changeLevel}
-                </button>
-              </div>
-            </section>
+            <Solved
+              title={last ? t.finale : t.solved}
+              next={{
+                label: t.next,
+                onClick: () => start(nextLevel(level.id)),
+              }}
+              change={{
+                label: t.changeLevel,
+                onClick: () => setView('levels'),
+              }}
+            />
           )}
           <div
             className={game.won ? 'under under--hidden' : 'under'}
