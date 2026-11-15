@@ -57,14 +57,15 @@ const byId = new Map(
 // The first room shows how the two move, then come beds, trunks, rugs,
 // trunks with bookcases, and last the hardest: bookcases held open by the
 // skeleton alone, and those with beds. The second trunk level plays first,
-// as it is easier to start trunks with.
+// as it is easier to start trunks with, and so does the second bookcase
+// level.
 const ORDER = [
   ['r1'],
   ['r2', 'r3', 'r4'],
   ['r11', 'r10', 'r12'],
   ['r16', 'r17', 'r18'],
   ['r13', 'r14', 'r15'],
-  ['r5', 'r6', 'r7'],
+  ['r6', 'r5', 'r7'],
   ['r8', 'r9'],
 ].flat();
 
