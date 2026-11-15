@@ -1,0 +1,1461 @@
+:root {
+  --bg: #f4f5f7;
+  --surface: #ffffff;
+  --text: #1a1d23;
+  --muted: #6b7280;
+  --border: #e2e5ea;
+  --accent: #3b4f8c;
+  --danger: #e03131;
+  --on-accent: #ffffff;
+  --sky-morning: #c9e2f7;
+  --sky-noon: #bfe3ff;
+  --sky-evening: #d3def4;
+  --sky-night: #27305e;
+  --moon: #f8f4e3;
+  --star: #f8f4e3;
+  --hay: #e8c25a;
+  --straw: #c99a2e;
+  --wood: #8b5a2b;
+  --lantern: #8d9096;
+  --fire: #ffc94d;
+  --light: #ffd66b;
+  --cloud: #ffffff;
+  --ground: #7d766b;
+  --garden: #a9cf8a;
+  --block-top: #9c9488;
+  --block-side: #6f685e;
+  --night: #141a3c;
+  --moon: #f8f4e3;
+  --lantern: #9a9ea6;
+  --fire: #ffc94d;
+  --light: #ffd66b;
+  --garden-dark: #8dbb6c;
+  --block: #8f887c;
+  --joint: #9e978b;
+  --stone: #d6d1c7;
+  --cobble: #e2ded5;
+  --chest: #a0652d;
+  --goal: #b2f2bb;
+  --goal-edge: #2f9e44;
+  --chest-dark: #6b3f17;
+  --exit: #e03131;
+  --exit-top: #343a40;
+  --shadow: #282c46;
+  --sun: #ffc61a;
+  --sun-ray: #ffa94d;
+  --leaf: #40a35a;
+  --leaf-dark: #2f8a47;
+  --ruby: #e03131;
+  --sapphire: #1c7ed6;
+  --emerald: #2fb344;
+  --gem-shine: #ffffff;
+  --diamond: #f8f9fa;
+  --diamond-shine: #a5d8ff;
+  --wall: #fbf6ec;
+  --post: #c92a2a;
+  --roof: #3f4a5a;
+  --window: #c92a2a;
+  --spire: #c9a227;
+  --gold: #e0a800;
+  --suit: #23263a;
+  --skin: #f5c9a0;
+  --robe: #862e9c;
+  --wizard: #5f3dc4;
+  --wizard-hat: #3b2a8a;
+  --magic: #b197fc;
+  --magic-light: #e5dbff;
+  --beard: #f1f3f5;
+  --castle: #adb5bd;
+  --castle-joint: #868e96;
+  --gold-dark: #b08600;
+  --hat: #d9a441;
+  --hat-edge: #a87a26;
+  --lamp-glass: #ffe8a3;
+  --helmet: #495057;
+  --wrong: #e5484d;
+  --selected: #f2b200;
+  --good: #2fa36b;
+  --radius: 18px;
+
+  color-scheme: light dark;
+  font-family:
+    system-ui,
+    -apple-system,
+    'Segoe UI',
+    Roboto,
+    sans-serif;
+  line-height: 1.4;
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #121418;
+    --surface: #1b1e24;
+    --text: #e8eaee;
+    --muted: #9aa1ad;
+    --border: #2c3038;
+    --accent: #8ea2e6;
+    --danger: #c92a2a;
+    --on-accent: #141a33;
+    --sky-morning: #2a3e58;
+    --sky-noon: #26405c;
+    --sky-evening: #2e3b5a;
+    --sky-night: #121733;
+    --moon: #e9e4cc;
+    --star: #d9d4bc;
+    --hay: #c9a443;
+    --straw: #9c7622;
+    --wood: #6b4420;
+    --lantern: #6d7076;
+    --fire: #ffc23a;
+    --light: #f5c451;
+    --cloud: #aeb6c6;
+    --ground: #34312c;
+    --garden: #2c3f2a;
+    --block-top: #4c4740;
+    --block-side: #2e2b27;
+    --night: #070a1c;
+    --moon: #e9e4cc;
+    --lantern: #7a7e86;
+    --fire: #ffc23a;
+    --light: #f5c451;
+    --garden-dark: #243523;
+    --block: #403c36;
+    --joint: #4a4640;
+    --stone: #8a857c;
+    --cobble: #969188;
+    --chest: #94602e;
+    --goal: #3f7a4c;
+    --goal-edge: #69db7c;
+    --chest-dark: #5a3414;
+    --exit: #e8590c;
+    --exit-top: #adb5bd;
+    --shadow: #080a14;
+    --sun: #ffd43b;
+    --sun-ray: #f59f00;
+    --leaf: #2f8a47;
+    --leaf-dark: #23703a;
+    --ruby: #f03e3e;
+    --sapphire: #339af0;
+    --emerald: #40c057;
+    --gem-shine: #f1f3f5;
+    --diamond: #f1f3f5;
+    --diamond-shine: #74c0fc;
+    --wall: #d8d2c4;
+    --post: #a82424;
+    --roof: #25303d;
+    --window: #a82424;
+    --spire: #b08d1e;
+    --gold: #f2b600;
+    --suit: #0d0f18;
+    --skin: #e0b48a;
+    --robe: #be4bdb;
+    --wizard: #7950f2;
+    --wizard-hat: #4c3a9e;
+    --magic: #b197fc;
+    --magic-light: #5f4b9e;
+    --beard: #dee2e6;
+    --castle: #495057;
+    --castle-joint: #343a40;
+    --gold-dark: #b8860b;
+    --hat: #c4923a;
+    --hat-edge: #8c6420;
+    --lamp-glass: #ffd66b;
+    --helmet: #868e96;
+    --wrong: #ff6b6f;
+    --good: #4cc38a;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+}
+
+h1,
+h2,
+p {
+  margin: 0;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  touch-action: manipulation;
+}
+
+button:disabled {
+  cursor: default;
+}
+
+.button:disabled {
+  opacity: 0.4;
+}
+
+.app {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: max(16px, env(safe-area-inset-top)) 16px
+    max(24px, env(safe-area-inset-bottom));
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 14px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 4px 0 2px 4px;
+}
+
+.header__title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+
+/* Small enough on a narrow phone for the icon, the title and both buttons. */
+.header__title h1 {
+  font-size: clamp(1.1rem, 5vw, 1.5rem);
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.home-link {
+  flex: none;
+  display: block;
+  width: clamp(32px, 10vw, 40px);
+  height: clamp(32px, 10vw, 40px);
+  border-radius: 25%;
+}
+
+.home-link svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.header__actions {
+  display: flex;
+  gap: 8px;
+}
+
+h1 {
+  font-size: 1.5rem;
+  white-space: nowrap;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+h2 {
+  font-size: 1.05rem;
+  font-weight: 650;
+}
+
+.muted {
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 18px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 14px;
+}
+
+.icon {
+  width: 22px;
+  height: 22px;
+  flex: none;
+}
+
+/* Buttons */
+
+.button {
+  border: 0;
+  border-radius: 14px;
+  padding: 14px 18px;
+  font-weight: 650;
+  background: var(--accent);
+  color: var(--on-accent);
+}
+
+.button--secondary {
+  background: var(--bg);
+  color: var(--text);
+}
+
+.button--danger {
+  background: var(--danger);
+  color: #ffffff;
+}
+
+.reset {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 8px;
+}
+
+.button--small {
+  white-space: nowrap;
+  padding: 7px 12px;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  background: var(--surface);
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+
+.button--icon {
+  display: grid;
+  place-items: center;
+  padding: 6px 10px;
+}
+
+.button--icon .icon {
+  width: 20px;
+  height: 20px;
+}
+
+/* While playing, everything fits on one screen: the board takes what
+   height is left after the header, program and controls. */
+.app--play {
+  height: 100dvh;
+  grid-template-rows: auto minmax(0, 1fr);
+}
+
+.stage {
+  container-type: size;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+  min-height: 0;
+}
+
+/* Board: a street seen from the side, as big as fits. */
+
+.board {
+  display: block;
+  width: min(100cqw, 640px, (100cqh - 142px) * var(--ratio));
+  user-select: none;
+  -webkit-user-select: none;
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.sky {
+  fill: var(--sky-noon);
+  transition: fill 0.5s ease-out;
+}
+
+.board--morning .sky {
+  fill: var(--sky-morning);
+}
+
+.board--evening .sky {
+  fill: var(--sky-evening);
+}
+
+/* Night: a dark sky, and the street dim but for the lanterns' light. */
+.board--night .sky,
+.moon__cut {
+  fill: var(--sky-night);
+}
+
+.moon {
+  fill: var(--moon);
+}
+
+.star {
+  fill: var(--star);
+  opacity: 0.8;
+}
+
+.board--night .dim {
+  filter: brightness(0.5) saturate(0.7);
+}
+
+.light {
+  fill: var(--light);
+  opacity: 0.7;
+  transition: opacity 0.4s ease-out;
+}
+
+.light--out {
+  opacity: 0;
+}
+
+/* A thing that moves (a pushed cart) rolls to its new cell. */
+.thing {
+  transition: transform 0.35s ease-out;
+}
+
+/* A cart that can't roll: a little jolt, and it stays. */
+.jolt {
+  animation: jolt 0.3s ease-in-out;
+}
+
+@keyframes jolt {
+  25% {
+    transform: translateX(0.8px);
+  }
+  75% {
+    transform: translateX(-0.8px);
+  }
+}
+
+.cart__hay {
+  fill: var(--hay);
+}
+
+.cart__straw {
+  fill: none;
+  stroke: var(--straw);
+  stroke-width: 0.4;
+  stroke-linecap: round;
+}
+
+.cart__wood,
+.cart__wheel {
+  fill: var(--wood);
+}
+
+.cart__hub {
+  fill: var(--straw);
+}
+
+.lantern__stone {
+  fill: var(--lantern);
+}
+
+.lantern__fire {
+  fill: var(--fire);
+  transition: fill 0.4s;
+}
+
+.lantern__fire--out {
+  fill: #3a3a3a;
+}
+
+.lantern__halo {
+  fill: var(--light);
+  opacity: 0.3;
+  transition: opacity 0.4s;
+}
+
+.lantern__halo--out {
+  opacity: 0;
+}
+
+/* A wisp of smoke rises from a lantern just blown out, and goes. */
+.lantern__smoke {
+  fill: none;
+  stroke: var(--moon);
+  stroke-width: 0.5;
+  stroke-linecap: round;
+  animation: smoke 1.4s ease-out both;
+}
+
+@keyframes smoke {
+  from {
+    opacity: 0.8;
+    transform: translateY(2px);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-2px);
+  }
+}
+
+/* The cloud drifts as long as the sun takes to go over. */
+.cloud {
+  transition: transform 0.5s ease-in-out;
+}
+
+.cloud__puff {
+  fill: var(--cloud);
+  opacity: 0.95;
+  pointer-events: none;
+}
+
+/* The ninja leans into a push, or puffs at a lantern. */
+.ninja__act--push {
+  animation: shove 0.35s ease-out;
+}
+
+.ninja__act--push-left {
+  animation: shove-left 0.35s ease-out;
+}
+
+@keyframes shove {
+  50% {
+    transform: translateX(1.5px);
+  }
+}
+
+@keyframes shove-left {
+  50% {
+    transform: translateX(-1.5px);
+  }
+}
+
+.ninja__puff path {
+  fill: none;
+  stroke: var(--moon);
+  stroke-width: 0.5;
+  stroke-linecap: round;
+  animation: puff 0.6s ease-out both;
+}
+
+@keyframes puff {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    transform: translateX(2px);
+  }
+}
+
+.ground {
+  fill: var(--ground);
+}
+
+.block {
+  fill: var(--block);
+}
+
+.stone {
+  fill: var(--stone);
+}
+
+.cobble {
+  fill: var(--cobble);
+}
+
+.surface {
+  fill: var(--joint);
+}
+
+.garden {
+  fill: var(--garden);
+}
+
+/* Each side's shadows fade into the next, as the sun goes round. */
+.shadows {
+  opacity: 0.62;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.shadows--off {
+  opacity: 0;
+}
+
+/* Night: the town goes dark, and the lanterns light up round them. */
+.night {
+  fill: var(--night);
+  opacity: 0.55;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.night--off,
+.lights--off,
+.sun--off,
+.moon--off {
+  opacity: 0;
+}
+
+.lights,
+.moon,
+.sun__disc,
+.sun__ray {
+  transition: opacity 0.5s ease-in-out;
+}
+
+.light {
+  fill: var(--light);
+  opacity: 0.45;
+}
+
+.lantern__stone {
+  fill: var(--lantern);
+}
+
+.lantern__window {
+  fill: #3a3a3a;
+}
+
+.lantern__fire {
+  fill: var(--fire);
+}
+
+.lantern__halo {
+  opacity: 1;
+}
+
+.glow__in {
+  stop-color: var(--light);
+  stop-opacity: 0.75;
+}
+
+.glow__mid {
+  stop-color: var(--light);
+  stop-opacity: 0.35;
+}
+
+.glow__out {
+  stop-color: var(--light);
+  stop-opacity: 0;
+}
+
+.moon__disc {
+  fill: var(--moon);
+}
+
+.block__top {
+  fill: var(--block-top);
+}
+
+.block__side {
+  fill: var(--block-side);
+}
+
+.shelter__ridge {
+  fill: var(--gold);
+}
+
+.tower__base {
+  fill: var(--roof);
+}
+
+.bamboo__ground {
+  fill: var(--garden-dark);
+}
+
+/* Strong enough to beat each thing's own colours. */
+.shadows .shadow,
+.shadows .shadow__shape * {
+  fill: var(--shadow);
+  stroke: none;
+}
+
+/* As long as the sun takes to go over the sky. */
+.shadow__cast {
+  transition:
+    transform 0.5s ease-in-out,
+    opacity 0.5s ease-in-out;
+}
+
+/* At noon it has shrunk to nothing: hide what is left of it. */
+.shadow__cast--noon {
+  opacity: 0;
+}
+
+.bamboo__stalk {
+  fill: var(--leaf);
+}
+
+.bamboo__joint,
+.bamboo__leaf {
+  fill: var(--leaf-dark);
+}
+
+.tower__post {
+  fill: var(--post);
+}
+
+.tower__spire {
+  stroke: var(--spire);
+  stroke-width: 0.6;
+}
+
+.tower__spire-ball {
+  fill: var(--spire);
+}
+
+.tower__wall {
+  fill: var(--wall);
+}
+
+.tower__roof {
+  fill: var(--roof);
+}
+
+.tower__window {
+  fill: var(--window);
+}
+
+.ninja {
+  transition-property: transform, opacity;
+  transition-timing-function: linear;
+}
+
+/* A guard, and where it looks: a warm, striped light no ninja goes in. */
+.guard__coat {
+  fill: var(--robe);
+}
+
+.guard__belt {
+  fill: var(--suit);
+}
+
+.guard__face {
+  fill: var(--skin);
+}
+
+.guard__hair,
+.guard__eye {
+  fill: var(--suit);
+}
+
+.guard__shut {
+  stroke: var(--suit);
+  stroke-width: 0.4;
+  stroke-linecap: round;
+}
+
+.guard__hat {
+  fill: var(--hat);
+  stroke: var(--hat-edge);
+  stroke-width: 0.4;
+  stroke-linejoin: round;
+}
+
+.guard__metal {
+  fill: var(--roof);
+}
+
+.guard__ring,
+.guard__bars {
+  fill: none;
+  stroke: var(--roof);
+  stroke-width: 0.35;
+  stroke-linecap: round;
+}
+
+.guard__glass {
+  fill: var(--lamp-glass);
+  stroke: var(--roof);
+  stroke-width: 0.2;
+}
+
+.guard__glass--out {
+  fill: var(--stone);
+}
+
+/* A wooden gate, shut with a gold lock; and the gold key that opens it. */
+.gate__post {
+  fill: var(--chest-dark);
+}
+
+.gate__door {
+  fill: var(--chest);
+  stroke: var(--chest-dark);
+  stroke-width: 0.3;
+}
+
+.gate__plank {
+  fill: none;
+  stroke: var(--chest-dark);
+  stroke-width: 0.2;
+}
+
+.gate__lock {
+  fill: var(--gold);
+  stroke: var(--chest-dark);
+  stroke-width: 0.2;
+}
+
+.gate__keyhole {
+  stroke: var(--chest-dark);
+  stroke-width: 0.35;
+  stroke-linecap: round;
+}
+
+.key__bow {
+  fill: none;
+  stroke: var(--gold);
+  stroke-width: 0.7;
+}
+
+.key__bit {
+  fill: none;
+  stroke: var(--gold);
+  stroke-width: 0.7;
+  stroke-linejoin: round;
+}
+
+.guard__flame {
+  fill: var(--fire);
+}
+
+.guard--asleep .guard__body {
+  transform: translateY(1.6px) scale(1, 0.85);
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
+}
+
+.guard__zz text {
+  fill: var(--text);
+  font-size: 3.4px;
+  font-weight: 700;
+  animation: zz 2s ease-in-out infinite;
+}
+
+@keyframes zz {
+  50% {
+    opacity: 0.4;
+  }
+}
+
+.gaze__cell {
+  fill: var(--light);
+  opacity: 0.7;
+  stroke: var(--fire);
+  stroke-width: 0.7;
+}
+
+/* What hides the ninja, cut out of it. */
+.cut * {
+  fill: #000 !important;
+  stroke: #000 !important;
+}
+
+.ninja__suit {
+  fill: var(--suit);
+}
+
+.ninja__face {
+  fill: var(--skin);
+}
+
+.ninja__eye {
+  fill: var(--suit);
+}
+
+.ninja__shut {
+  stroke: var(--suit);
+  stroke-width: 0.5;
+  stroke-linecap: round;
+}
+
+/* Seen, the ninja ducks down low and runs back like that. */
+.ninja__pose {
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
+  transition: transform 0.12s ease-out;
+}
+
+.ninja--crouch {
+  transform: scale(1.08, 0.72);
+}
+
+.column {
+  fill: transparent;
+  cursor: pointer;
+}
+
+.sun {
+  pointer-events: none;
+  transition: transform 0.5s ease-in-out;
+}
+
+.sun__disc {
+  fill: var(--sun);
+}
+
+.sun__ray {
+  stroke: var(--sun-ray);
+  stroke-width: 1;
+  stroke-linecap: round;
+}
+
+/* Under the board: which level, and under it the sun, in the middle. */
+.bar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.bar__level {
+  font-weight: 650;
+  color: var(--muted);
+}
+
+.tool {
+  display: grid;
+  place-items: center;
+  width: 54px;
+  padding: 12px 2px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--surface);
+  color: var(--muted);
+}
+
+.sun-icon__disc {
+  fill: var(--sun);
+}
+
+.sun-icon__ray {
+  stroke: var(--sun-ray);
+  stroke-width: 2;
+  stroke-linecap: round;
+}
+
+.sun-icon__moon {
+  fill: var(--moon);
+  stroke: var(--muted);
+  stroke-width: 0.8;
+}
+
+.sun-icon__crater {
+  fill: var(--muted);
+  opacity: 0.35;
+}
+
+.sun-icon__star {
+  fill: var(--sun);
+}
+
+.tool--sun {
+  width: 104px;
+  padding: 18px 2px;
+  border-radius: 22px;
+}
+
+.tool--sun .icon {
+  width: 48px;
+  height: 48px;
+}
+
+.tool:disabled {
+  opacity: 0.4;
+}
+
+/* Solved */
+
+.solved {
+  text-align: center;
+  gap: 8px;
+  animation: pop 0.3s ease-out both;
+  /* Over the game, so nothing below it moves. */
+  position: fixed;
+  z-index: 5;
+  left: 50%;
+  bottom: calc(16px + env(safe-area-inset-bottom));
+  width: min(420px, calc(100% - 32px));
+  translate: -50% 0;
+  box-shadow: 0 10px 40px rgb(0 0 0 / 0.25);
+}
+
+.solved h2 {
+  font-size: 1.6rem;
+}
+
+.solved__actions {
+  display: grid;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.confetti {
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+@keyframes pop {
+  from {
+    transform: scale(0.85);
+    opacity: 0;
+  }
+}
+
+@keyframes chest-open {
+  40% {
+    transform: scale(1.15);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sky,
+  .shadow__cast,
+  .ninja,
+  .sun,
+  .thing,
+  .cloud {
+    transition: none !important;
+  }
+  .solved {
+    animation: none !important;
+  }
+}
+
+/* New game and settings */
+
+.world {
+  display: grid;
+  gap: 10px;
+}
+
+.world__name {
+  display: flex;
+  align-items: center;
+}
+
+.world__icon {
+  width: 34px;
+  height: 34px;
+}
+
+.level--locked {
+  opacity: 0.35;
+}
+
+.level--locked:active {
+  transform: none;
+}
+
+.levels {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.level {
+  aspect-ratio: 1;
+  border: 2px solid transparent;
+  border-radius: 16px;
+  background: var(--bg);
+  font-weight: 700;
+  font-size: 1.4rem;
+  transition: transform 0.1s;
+}
+
+.level:active {
+  transform: scale(0.95);
+}
+
+.level--won {
+  background: var(--accent);
+  color: var(--on-accent);
+}
+
+.level--current {
+  border-color: var(--accent);
+}
+
+.stats {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.stats th,
+.stats td {
+  padding: 8px 4px;
+  text-align: right;
+  border-top: 1px solid var(--border);
+}
+
+.stats thead th {
+  border-top: 0;
+  color: var(--muted);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.stats tbody th {
+  text-align: left;
+  font-weight: 600;
+}
+
+.footer {
+  flex-wrap: wrap;
+  display: flex;
+  justify-content: center;
+  padding-top: 4px;
+  gap: 20px;
+}
+
+.footer a {
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.footer__version {
+  flex-basis: 100%;
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.75rem;
+}
+
+/* Settings controls */
+
+.field {
+  display: grid;
+  gap: 10px;
+  font-weight: 600;
+}
+
+.field .muted {
+  display: block;
+  font-weight: 400;
+}
+
+.segmented {
+  display: grid;
+  grid-auto-columns: minmax(0, 1fr);
+  grid-auto-flow: column;
+  padding: 3px;
+  border-radius: 12px;
+  background: var(--bg);
+}
+
+.segmented button {
+  border: 0;
+  background: none;
+  padding: 9px 4px;
+  border-radius: 9px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+.segmented button[aria-pressed='true'] {
+  background: var(--surface);
+  color: var(--text);
+  box-shadow: 0 1px 3px rgb(0 0 0 / 0.12);
+}
+
+/* The last cell, under the way out or the treasure chest. */
+.stone--goal {
+  fill: var(--goal);
+  stroke: var(--goal-edge);
+  stroke-width: 0.6;
+}
+
+/* The way out of town: a red arch. */
+.exit__post,
+.exit__beam {
+  fill: var(--exit);
+}
+
+.exit__top {
+  fill: var(--exit-top);
+}
+
+/* Through the way out, the ninja is gone. */
+.ninja--away {
+  opacity: 0;
+}
+
+/* The treasure chest. */
+.chest__body {
+  fill: var(--chest);
+}
+
+.chest__lid {
+  fill: var(--chest-dark);
+}
+
+.chest__band,
+.chest__lock {
+  fill: var(--gold);
+}
+
+.chest__coin {
+  fill: var(--gold);
+  stroke: var(--chest-dark);
+  stroke-width: 0.3;
+}
+
+/* The gems on top of the gold, red, white, blue and green, that pop
+   up as the lid flies open. */
+.gem {
+  stroke: var(--chest-dark);
+  stroke-width: 0.25;
+  stroke-linejoin: round;
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
+  animation: gem-pop 0.5s ease-out both;
+}
+
+.gem--ruby {
+  fill: var(--ruby);
+}
+
+.gem--sapphire {
+  fill: var(--sapphire);
+  animation-delay: 0.1s;
+}
+
+.gem--emerald {
+  fill: var(--emerald);
+  animation-delay: 0.2s;
+}
+
+.gem--diamond {
+  fill: var(--diamond);
+  animation-delay: 0.3s;
+}
+
+.gem--diamond .gem__shine {
+  fill: var(--diamond-shine);
+}
+
+.gem__shine {
+  fill: var(--gem-shine);
+  stroke: none;
+  opacity: 0.8;
+}
+
+@keyframes gem-pop {
+  0% {
+    transform: translateY(2px) scale(0.3);
+    opacity: 0;
+  }
+  60% {
+    transform: translateY(-1px) scale(1.15);
+    opacity: 1;
+  }
+}
+
+.chest__glow {
+  fill: var(--gold);
+  opacity: 0.35;
+}
+
+/* The lid flies open with a little bounce; the chest never goes away. */
+.chest--open {
+  animation: chest-open 0.35s ease-out;
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
+}
+
+/* The castle at the end: the guard is a wizard, whose wand lights up where
+   it looks in a purple magic light instead of a lamp's. */
+.guard--wizard .guard__coat {
+  fill: var(--wizard);
+}
+
+.guard--wizard .guard__hat {
+  fill: var(--wizard-hat);
+  stroke: var(--wizard-hat);
+}
+
+.guard__star {
+  fill: var(--gold);
+}
+
+.guard__beard {
+  fill: var(--beard);
+}
+
+.guard__wand {
+  stroke: var(--chest-dark);
+  stroke-width: 0.45;
+  stroke-linecap: round;
+}
+
+.guard__magic {
+  fill: var(--magic);
+  stroke: var(--gold);
+  stroke-width: 0.2;
+  stroke-linejoin: round;
+}
+
+.guard__magic--out {
+  fill: var(--stone);
+  stroke: none;
+}
+
+.gaze--magic .gaze__cell {
+  fill: var(--magic-light);
+  stroke: var(--magic);
+}
+
+.castle__wall {
+  fill: var(--castle);
+}
+
+.castle__joints,
+.castle__pole {
+  fill: none;
+  stroke: var(--castle-joint);
+  stroke-width: 0.35;
+}
+
+.castle__pole {
+  stroke: var(--chest-dark);
+  stroke-width: 0.5;
+}
+
+.castle__flag {
+  fill: var(--wizard);
+}
+
+/* The gold chest. */
+.chest--gold .chest__body {
+  fill: var(--gold);
+}
+
+.chest--gold .chest__lid {
+  fill: var(--gold-dark);
+}
+
+.chest--gold .chest__band,
+.chest--gold .chest__lock {
+  fill: var(--gold-dark);
+}
+
+/* The gems pop up out of the chest, rest a moment, then fly off to either
+   side and burst into the friends they were. */
+.flying-gem {
+  transform-box: fill-box;
+  transform-origin: 50% 50%;
+  animation: gem-fly 1.5s ease-in-out both;
+}
+
+@keyframes gem-fly {
+  0% {
+    transform: translate(var(--dx), var(--dy)) scale(0.4);
+    opacity: 0;
+  }
+  15% {
+    transform: translate(var(--dx), var(--dy)) scale(1.35);
+    opacity: 1;
+  }
+  45% {
+    transform: translate(var(--dx), var(--dy)) scale(1.35);
+  }
+  75% {
+    transform: translate(calc(var(--dx) * 0.4), -2px) scale(1.6);
+  }
+  95% {
+    transform: translate(0, 0) scale(2);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(0, 0) scale(2.4);
+    opacity: 0;
+  }
+}
+
+.friend__burst {
+  fill: none;
+  stroke-width: 0.6;
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: 50% 50%;
+  animation: burst 0.5s ease-out forwards;
+}
+
+.friend__burst--ruby {
+  stroke: var(--ruby);
+}
+.friend__burst--sapphire {
+  stroke: var(--sapphire);
+}
+.friend__burst--emerald {
+  stroke: var(--emerald);
+}
+.friend__burst--diamond {
+  stroke: var(--diamond-shine);
+}
+
+@keyframes burst {
+  0% {
+    transform: scale(0.2);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.6);
+    opacity: 0;
+  }
+}
+
+.friend {
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
+  animation:
+    friend-in 0.4s ease-out var(--in) both,
+    party 0.6s ease-in-out calc(var(--in) + 0.4s) infinite;
+}
+
+.friend--ruby .ninja__suit {
+  fill: var(--ruby);
+}
+.friend--sapphire .ninja__suit {
+  fill: var(--sapphire);
+}
+.friend--emerald .ninja__suit {
+  fill: var(--emerald);
+}
+.friend--diamond .ninja__suit {
+  fill: var(--diamond);
+  stroke: var(--diamond-shine);
+  stroke-width: 0.3;
+}
+
+@keyframes friend-in {
+  0% {
+    transform: scale(0);
+  }
+  70% {
+    transform: scale(1.2);
+  }
+}
+
+/* Everyone jumps for joy, again and again. */
+.ninja--party {
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
+  animation: party 0.6s ease-in-out infinite;
+}
+
+@keyframes party {
+  0%,
+  100% {
+    transform: none;
+  }
+  15% {
+    transform: scale(1.08, 0.9);
+  }
+  45% {
+    transform: translateY(-3px) scale(0.95, 1.08);
+  }
+  80% {
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .friend,
+  .ninja--party {
+    animation: none;
+  }
+}
