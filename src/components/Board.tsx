@@ -175,7 +175,6 @@ export function NumberPad({
 }) {
   return (
     <div className='tiles pad' role='group' aria-label={t.numberPad}>
-      {!active && <p className='pad__hint'>{t.pickSquare}</p>}
       {DIGITS.map((d) => (
         <button
           key={d}
