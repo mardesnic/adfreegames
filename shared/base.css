@@ -67,12 +67,15 @@ button:disabled {
   width: clamp(32px, 10vw, 40px);
   height: clamp(32px, 10vw, 40px);
   border-radius: 25%;
+  /* The icon is white, so a thin edge keeps it apart from a light page. */
+  box-shadow: 0 0 0 1px var(--border);
 }
 
-.home-link svg {
+.home-link img {
   display: block;
   width: 100%;
   height: 100%;
+  border-radius: inherit;
 }
 
 .header__actions {
