@@ -182,7 +182,10 @@ h2 {
    shared controls in a strip between them. */
 
 .duo {
-  height: 100dvh;
+  /* Pinned to the screen's edges rather than sized with 100dvh, which the
+     installed app can measure taller than the screen after a reload. */
+  position: fixed;
+  inset: 0;
   max-width: 720px;
   margin: 0 auto;
   display: grid;

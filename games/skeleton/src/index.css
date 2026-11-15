@@ -226,7 +226,10 @@ h2 {
 /* While playing, everything fits on one screen: the board takes what
    height is left after the header, program and controls. */
 .app--play {
-  height: 100dvh;
+  /* Pinned to the screen's edges rather than sized with 100dvh, which the
+     installed app can measure taller than the screen after a reload. */
+  position: fixed;
+  inset: 0;
   grid-template-rows: auto minmax(0, 1fr);
 }
 
