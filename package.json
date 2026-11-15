@@ -8,12 +8,14 @@
     "build": "tsc -b && vite build",
     "lint": "oxlint",
     "preview": "vite preview",
-    "test": "vitest run",
+    "test": "vitest run --exclude \"games/elements/src/lib/levels.test.ts\" --exclude \"games/elements/scripts/**\"",
+    "test:levels": "vitest run games/elements/src/lib/levels.test.ts games/elements/scripts",
+    "test:all": "vitest run",
     "format": "prettier --write .",
     "typecheck": "tsc -b",
     "predeploy": "npm test && npm run build",
     "deploy": "gh-pages -d dist",
-    "levels:elements": "cd games/elements && node --experimental-strip-types --no-warnings scripts/make-levels.ts",
+    "levels:elements": "cd games/elements && node --experimental-strip-types --no-warnings scripts/make-levels.ts && npm run test:levels",
     "levels:shapes": "cd games/shapes && node --experimental-strip-types --no-warnings scripts/make-levels.ts"
   },
   "dependencies": {
