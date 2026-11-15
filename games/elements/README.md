@@ -4,7 +4,6 @@ A free puzzle game for young kids that works offline. You guide little element f
 
 Made for ages 5 and up. There is no timer and no way to lose. Undo takes back the last move, and Start over resets the level.
 
-
 ## Features
 
 - Levels in worlds, one friend more in each: first fire alone, learning to walk and to burn coal, then fire and water, from a first walk together to long puzzles, then all three with earth, then all four with air, and one last level where a man and a woman join them

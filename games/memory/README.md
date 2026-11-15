@@ -4,7 +4,6 @@ A free memory game for young kids that works offline. Cards lie face down, two o
 
 Made for ages 5 and up. There is no timer, no move counter and no way to lose.
 
-
 ## Features
 
 - Three levels:

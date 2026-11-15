@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 
 import { Board } from './components/Board';
-import { HomeLink } from './components/HomeLink';
-import { Confetti } from './components/Confetti';
+import { HomeLink } from '@shared/HomeLink';
+import { Confetti } from '@shared/Confetti';
 import { Icon } from './components/Icon';
 import { NewGame, SettingsView } from './components/Menu';
 import {
@@ -16,11 +16,11 @@ import {
 } from './lib/game';
 import { STRINGS, detectLang } from './lib/i18n';
 import { pickPicture, pictureById } from './lib/pixels';
-import { popMenu, pushMenu, useBackButton } from './lib/use-back-button';
+import { popMenu, pushMenu, useBackButton } from '@shared/use-back-button';
 import { useCheer } from './lib/use-cheer';
-import { useLanguage, useSound } from './lib/use-shared-settings';
-import { useStoredState } from './lib/use-stored-state';
-import { useWakeLock } from './lib/use-wake-lock';
+import { useLanguage, useSound } from '@shared/use-shared-settings';
+import { useStoredState } from '@shared/use-stored-state';
+import { useWakeLock } from '@shared/use-wake-lock';
 
 type View = 'play' | 'new' | 'settings';
 
@@ -216,7 +216,9 @@ export default function App() {
       {view === 'settings' && (
         <footer className='footer'>
           <a href='/des-kids-games/'>{t.allGames}</a>
-          <a href='https://github.com/mardesnic/des-kids-games/tree/main/games/pixeldoku'>{t.source}</a>
+          <a href='https://github.com/mardesnic/des-kids-games/tree/main/games/pixeldoku'>
+            {t.source}
+          </a>
           <span className='footer__version'>
             {t.version} {__VERSION__}
           </span>

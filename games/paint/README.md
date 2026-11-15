@@ -4,7 +4,6 @@ A free colour mixing game for young kids that works offline. A colour is shown, 
 
 Made for ages 5 and up. There is no timer and no way to lose. Undo takes back the last drop, and Start over empties the tube.
 
-
 ## Features
 
 - Four levels:

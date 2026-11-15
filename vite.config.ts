@@ -36,6 +36,8 @@ export default defineConfig({
   define: { __VERSION__: JSON.stringify(version) },
   base: '/des-kids-games/',
   build: { rollupOptions: { input } },
+  // Code every game uses, in shared/.
+  resolve: { alias: { '@shared': resolve(import.meta.dirname, 'shared') } },
   plugins: [
     react(),
     // Installable from the browser menu, and works offline once loaded.

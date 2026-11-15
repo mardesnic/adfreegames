@@ -9,8 +9,8 @@ import {
   type Language,
   type Strings,
 } from './lib/i18n';
-import { popMenu, pushMenu, useBackButton } from './lib/use-back-button';
-import { useLanguage, useSound } from './lib/use-shared-settings';
+import { popMenu, pushMenu, useBackButton } from '@shared/use-back-button';
+import { useLanguage, useSound } from '@shared/use-shared-settings';
 
 type View = 'list' | 'settings';
 

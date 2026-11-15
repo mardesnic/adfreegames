@@ -4,7 +4,6 @@ A free shadow puzzle for young kids that works offline. A little ninja wants to 
 
 Made for ages 5 and up. There is no timer and no way to lose: nothing moves until you tap, the ninja won't walk out into the sun, and if the sun moves onto it, it only ducks and runs back to the start, under a little shelter where it is always shady, to try again.
 
-
 ## Features
 
 - The sun on three sides and the moon on the fourth, with shadows by day and lanterns at night

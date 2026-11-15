@@ -4,7 +4,6 @@ A free ring puzzle for young kids that works offline. Rings of different sizes s
 
 Made for ages 5 and up. There is no timer, no move counter and no way to lose. A move that is not allowed only makes the ring shake. Undo takes back the last move, and Start over puts the rings back where they started.
 
-
 ## Features
 
 - Three levels:

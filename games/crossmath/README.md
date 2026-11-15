@@ -4,7 +4,6 @@ A free math crossword puzzle for young kids that works offline. The grid is made
 
 Made for ages 5 and up. There is no timer and no way to lose: a sum that adds up turns green, one that doesn't gives a little wobble, and any piece can be moved again.
 
-
 ## Features
 
 - 5 levels: just + up to 10, + and − up to 10, + and − up to 20, then × up to 50, and all four operators up to 100 on a big grid where most missing numbers have to be worked out backwards

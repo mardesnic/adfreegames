@@ -4,7 +4,6 @@ A free sliding block puzzle for young kids that works offline. The star block is
 
 Made for ages 5 and up. There is no timer and no way to lose. Undo takes back the last move, and Start over puts the blocks back where they began.
 
-
 ## Features
 
 - Over 100 levels at each of four levels of difficulty:

@@ -4,7 +4,6 @@ A free balance scale game for young kids that works offline. One side of the sca
 
 Made for ages 5 and up. There is no timer and no way to lose. Undo takes back the last move, and Start over takes all the fruit off.
 
-
 ## Features
 
 - Four levels:

@@ -4,7 +4,6 @@ A free spelling game for young kids that works offline. A picture is shown, and 
 
 Made for ages 5 and up. There is no timer and no way to lose. Undo takes back the last move, and Start over puts the letters back where they began.
 
-
 ## Features
 
 - Over 100 words in each language, at four levels: words of **3**, **4**, **5**, and **6 or more** letters

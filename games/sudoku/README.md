@@ -2,7 +2,6 @@
 
 A free sudoku that works offline. It makes a new puzzle every time, in six difficulty levels, and every puzzle has exactly one solution.
 
-
 ## Features
 
 - New puzzles made on your device, from very easy (a 4×4 board with shapes instead of numbers) and easy (a 6×6 board) to medium, hard, very hard and expert on the usual 9×9 board

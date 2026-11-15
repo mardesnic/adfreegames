@@ -4,7 +4,6 @@ A free picture logic puzzle for young kids that works offline. The numbers next 
 
 Made for ages 5 and up. There is no timer and no way to lose. Undo takes back the last move, and Start over clears the grid.
 
-
 ## Features
 
 - Four sizes, from 5 × 5 to 10 × 10, each with its own hand-drawn pictures

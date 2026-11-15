@@ -4,7 +4,6 @@ A free pattern game for young kids that works offline. A few squares of a grid l
 
 Made for ages 5 and up. There is no timer and no way to lose. A wrong square only shakes, and the pattern shows again to start over.
 
-
 ## Features
 
 - Three levels:

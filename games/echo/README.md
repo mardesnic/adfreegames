@@ -6,7 +6,6 @@ Two kids can also play together: put the phone or tablet flat on the table betwe
 
 Made for ages 5 and up. There is no timer, and two players don't play against each other: the song is theirs together. A wrong note ends the song, which then plays once more from start to end, and you can try to beat your longest song.
 
-
 ## Features
 
 - Play alone: you play the first note, then the game adds a note each turn and you play the whole song back

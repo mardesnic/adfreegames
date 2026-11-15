@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
 
 import { Board, STEP_MS } from './components/Board';
-import { Confetti } from './components/Confetti';
-import { HomeLink } from './components/HomeLink';
+import { Confetti } from '@shared/Confetti';
+import { HomeLink } from '@shared/HomeLink';
 import { Icon } from './components/Icon';
 import { Levels } from './components/Levels';
 import { SettingsView } from './components/Menu';
@@ -35,11 +35,11 @@ import {
   type Sun,
 } from './lib/game';
 import { STRINGS, detectLang } from './lib/i18n';
-import { popMenu, pushMenu, useBackButton } from './lib/use-back-button';
+import { popMenu, pushMenu, useBackButton } from '@shared/use-back-button';
 import { useCheer, usePlop } from './lib/use-cheer';
-import { useLanguage, useSound } from './lib/use-shared-settings';
-import { useStoredState } from './lib/use-stored-state';
-import { useWakeLock } from './lib/use-wake-lock';
+import { useLanguage, useSound } from '@shared/use-shared-settings';
+import { useStoredState } from '@shared/use-stored-state';
+import { useWakeLock } from '@shared/use-wake-lock';
 
 type View = 'play' | 'levels' | 'settings';
 
@@ -377,7 +377,9 @@ export default function App() {
           />
           <footer className='footer'>
             <a href='/des-kids-games/'>{t.allGames}</a>
-            <a href='https://github.com/mardesnic/des-kids-games/tree/main/games/shadow'>{t.source}</a>
+            <a href='https://github.com/mardesnic/des-kids-games/tree/main/games/shadow'>
+              {t.source}
+            </a>
             <span className='footer__version'>
               {t.version} {__VERSION__}
             </span>

@@ -4,7 +4,6 @@ A free puzzle game for young kids that works offline. Draw a line with your fing
 
 Made for ages 5 and up. There is no timer and no way to lose. Drawing back over a line rubs it out, and Undo takes back the last line.
 
-
 ## Features
 
 - New levels made on your device, in four sizes:

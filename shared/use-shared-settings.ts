@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 
-import type { Language } from './i18n';
+// The same in every game's i18n.ts.
+export type Language = 'auto' | 'en' | 'hr';
 
 // All the des- games live on one site, so they share storage. Some settings
 // are kept in one place for all of them: picking one in a game picks it in
