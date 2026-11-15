@@ -2,7 +2,7 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 
 import { HomeLink } from '@shared/HomeLink';
 import { Confetti } from '@shared/Confetti';
-import { Icon } from './components/Icon';
+import { Icon } from '@shared/Icon';
 import { SettingsView } from './components/Menu';
 import { Side, type Wobble } from './components/Side';
 import {

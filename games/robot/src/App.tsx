@@ -4,7 +4,7 @@ import { Board } from './components/Board';
 import { HomeLink } from '@shared/HomeLink';
 import { Confetti } from '@shared/Confetti';
 import { Solved } from '@shared/Solved';
-import { Icon } from './components/Icon';
+import { Icon } from '@shared/Icon';
 import { NewGame, SettingsView } from './components/Menu';
 import { Program } from './components/Program';
 import { Arrow } from './components/Sprite';
@@ -314,7 +314,7 @@ export default function App() {
                       disabled={running || !game.program.length}
                       aria-label={t.clear}
                     >
-                      <Icon name='clear' />
+                      <Icon name='trash' />
                     </button>
                   </div>
                 </div>

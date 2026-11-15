@@ -1,6 +1,6 @@
 import type { CSSProperties } from 'react';
 
-import { Icon } from './Icon';
+import { Icon } from '@shared/Icon';
 import {
   fits,
   isBlank,

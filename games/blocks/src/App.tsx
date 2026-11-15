@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { Board } from './components/Board';
 import { Confetti } from '@shared/Confetti';
 import { Solved } from '@shared/Solved';
-import { Icon } from './components/Icon';
+import { Icon } from '@shared/Icon';
 import { NewGame, SettingsView } from './components/Menu';
 import { pick, type Difficulty } from './lib/blocks';
 import {

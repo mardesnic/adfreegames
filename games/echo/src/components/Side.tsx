@@ -3,7 +3,7 @@ import type { PointerEvent } from 'react';
 import { isAdding, type Player, type Song } from '../lib/echo';
 import type { Strings } from '../lib/i18n';
 import { PADS, type Shape } from '../lib/pads';
-import { Icon } from './Icon';
+import { Icon } from '@shared/Icon';
 
 const SHAPES: Record<Shape, string> = {
   circle: 'M12 5a7 7 0 1 0 0 14 7 7 0 1 0 0-14z',

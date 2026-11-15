@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 
 import { Board } from './components/Board';
 import { HomeLink } from '@shared/HomeLink';
-import { Icon } from './components/Icon';
+import { Icon } from '@shared/Icon';
 import { NewGame, SettingsView } from './components/Menu';
 import { Confetti } from '@shared/Confetti';
 import { Solved } from '@shared/Solved';

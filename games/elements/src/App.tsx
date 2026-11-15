@@ -4,7 +4,7 @@ import { Board, type Bump } from './components/Board';
 import { HomeLink } from '@shared/HomeLink';
 import { Confetti } from '@shared/Confetti';
 import { Solved } from '@shared/Solved';
-import { Icon } from './components/Icon';
+import { Icon } from '@shared/Icon';
 import { Levels } from './components/Levels';
 import { SettingsView } from './components/Menu';
 import { elementsIn } from './lib/elements';

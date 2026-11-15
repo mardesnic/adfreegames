@@ -4,7 +4,7 @@ import { Board, STEP_MS } from './components/Board';
 import { Confetti } from '@shared/Confetti';
 import { Solved } from '@shared/Solved';
 import { HomeLink } from '@shared/HomeLink';
-import { Icon } from './components/Icon';
+import { Icon } from '@shared/Icon';
 import { Levels } from './components/Levels';
 import { SettingsView } from './components/Menu';
 import {
