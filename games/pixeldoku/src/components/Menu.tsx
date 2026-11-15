@@ -1,5 +1,6 @@
 import { DIFFICULTIES, type Difficulty, type Stats } from '../lib/game';
-import { LANG_NAMES, LANGS, type Language, type Strings } from '../lib/i18n';
+import { type Language, type Strings } from '../lib/i18n';
+import { LanguageField, SoundField } from '@shared/Settings';
 
 export function NewGame({
   onStart,
@@ -28,32 +29,6 @@ export function NewGame({
   );
 }
 
-function Segmented<T>({
-  options,
-  value,
-  label,
-  onChange,
-}: {
-  options: readonly T[];
-  value: T;
-  label: (o: T) => string;
-  onChange: (o: T) => void;
-}) {
-  return (
-    <div className='segmented'>
-      {options.map((o) => (
-        <button
-          key={String(o)}
-          aria-pressed={value === o}
-          onClick={() => onChange(o)}
-        >
-          {label(o)}
-        </button>
-      ))}
-    </div>
-  );
-}
-
 export function SettingsView({
   sound,
   language,
@@ -69,32 +44,14 @@ export function SettingsView({
   stats: Stats;
   t: Strings;
 }) {
-  const languages: Language[] = ['auto', ...LANGS];
-
   return (
     <>
       <section className='card'>
         <h2>{t.settings}</h2>
 
-        <div className='field'>
-          <span>{t.language}</span>
-          <Segmented
-            options={languages}
-            value={language}
-            label={(l) => (l === 'auto' ? t.automatic : LANG_NAMES[l])}
-            onChange={setLanguage}
-          />
-        </div>
+        <LanguageField language={language} setLanguage={setLanguage} t={t} />
 
-        <div className='field'>
-          <span>{t.sound}</span>
-          <Segmented
-            options={[true, false]}
-            value={sound}
-            label={(on) => (on ? t.on : t.off)}
-            onChange={setSound}
-          />
-        </div>
+        <SoundField sound={sound} setSound={setSound} t={t} />
       </section>
 
       <section className='card'>

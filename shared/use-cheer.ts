@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 
-// A happy run up the scale and a little buzz when a puzzle is solved. The
+// The same in every game. A happy run up the scale and a little buzz when a puzzle is solved. The
 // notes are made with Web Audio, so there are no files to load and it works
 // offline. Phones without vibration (iPhones) just play the sound.
 
@@ -59,7 +59,26 @@ function cheer() {
   }
 }
 
-const quiet = () => {};
+// For a game's own short sounds (a ring put down, a card turned): `notes`
+// plays one or more tones, `buzz` is the vibration. Quiet where there is no
+// sound, and never breaks the game.
+export function playSound(
+  notes: (
+    note: (frequency: number, at: number, length: number) => void
+  ) => void,
+  buzz: VibratePattern
+) {
+  wake();
+  try {
+    const a = ctx;
+    if (a) notes((frequency, at, length) => tone(a, frequency, at, length));
+    navigator.vibrate?.(buzz);
+  } catch {
+    // Nice to have only.
+  }
+}
+
+export const quiet = () => {};
 
 // Returns the function to call on a win, which does nothing when `on` is off.
 export function useCheer(on: boolean) {

@@ -26,6 +26,7 @@ import { popMenu, pushMenu, useBackButton } from '@shared/use-back-button';
 import { useLanguage } from '@shared/use-shared-settings';
 import { useStoredState } from '@shared/use-stored-state';
 import { useWakeLock } from '@shared/use-wake-lock';
+import { SettingsFooter } from '@shared/Settings';
 
 // How long between notes when a song is played to the players, in ms.
 const REPLAY_GAP = 550;
@@ -222,15 +223,7 @@ export default function App() {
           stats={stats}
           t={t}
         />
-        <footer className='footer'>
-          <a href={import.meta.env.BASE_URL}>{t.allGames}</a>
-          <a href='https://github.com/mardesnic/adfreegames/tree/main/games/echo'>
-            {t.source}
-          </a>
-          <span className='footer__version'>
-            {t.version} {__VERSION__}
-          </span>
-        </footer>
+        <SettingsFooter game='echo' t={t} />
       </main>
     );
 

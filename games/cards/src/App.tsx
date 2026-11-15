@@ -22,10 +22,12 @@ import {
 } from './lib/game';
 import { STRINGS, detectLang } from './lib/i18n';
 import { popMenu, pushMenu, useBackButton } from '@shared/use-back-button';
-import { useCheer, usePlop } from './lib/use-cheer';
+import { useCheer } from '@shared/use-cheer';
+import { usePlop } from './lib/use-cheer';
 import { useLanguage, useSound } from '@shared/use-shared-settings';
 import { useStoredState } from '@shared/use-stored-state';
 import { useWakeLock } from '@shared/use-wake-lock';
+import { SettingsFooter } from '@shared/Settings';
 
 type View = 'play' | 'new' | 'settings';
 
@@ -170,17 +172,7 @@ export default function App() {
         </>
       )}
 
-      {view === 'settings' && (
-        <footer className='footer'>
-          <a href={import.meta.env.BASE_URL}>{t.allGames}</a>
-          <a href='https://github.com/mardesnic/adfreegames/tree/main/games/cards'>
-            {t.source}
-          </a>
-          <span className='footer__version'>
-            {t.version} {__VERSION__}
-          </span>
-        </footer>
-      )}
+      {view === 'settings' && <SettingsFooter game='cards' t={t} />}
       {celebrating && <Confetti onDone={() => setCelebrating(false)} />}
     </main>
   );

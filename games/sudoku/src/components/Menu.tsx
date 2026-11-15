@@ -1,6 +1,7 @@
 import { HINT_LIMITS, THEMES, type Settings, type Stats } from '../lib/game';
-import { LANG_NAMES, LANGS, type Language, type Strings } from '../lib/i18n';
+import { type Language, type Strings } from '../lib/i18n';
 import { DIFFICULTIES, type Difficulty } from '../lib/sudoku';
+import { LanguageField, SoundField } from '@shared/Settings';
 
 export function NewGame({
   onStart,
@@ -48,42 +49,14 @@ export function SettingsView({
   stats: Stats;
   t: Strings;
 }) {
-  const languages: Language[] = ['auto', ...LANGS];
-
   return (
     <>
       <section className='card'>
         <h2>{t.settings}</h2>
 
-        <div className='field'>
-          <span>{t.language}</span>
-          <div className='segmented'>
-            {languages.map((l) => (
-              <button
-                key={l}
-                aria-pressed={language === l}
-                onClick={() => setLanguage(l)}
-              >
-                {l === 'auto' ? t.automatic : LANG_NAMES[l]}
-              </button>
-            ))}
-          </div>
-        </div>
+        <LanguageField language={language} setLanguage={setLanguage} t={t} />
 
-        <div className='field'>
-          <span>{t.sound}</span>
-          <div className='segmented'>
-            {[true, false].map((on) => (
-              <button
-                key={String(on)}
-                aria-pressed={sound === on}
-                onClick={() => setSound(on)}
-              >
-                {on ? t.on : t.off}
-              </button>
-            ))}
-          </div>
-        </div>
+        <SoundField sound={sound} setSound={setSound} t={t} />
 
         <div className='field'>
           <span>

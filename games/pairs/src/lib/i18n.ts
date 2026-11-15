@@ -4,12 +4,6 @@ export const LANGS = ['en', 'hr'] as const;
 export type Lang = (typeof LANGS)[number];
 export type Language = 'auto' | Lang;
 
-// Each language's name in that language, for the picker.
-export const LANG_NAMES: Record<Lang, string> = {
-  en: 'English',
-  hr: 'Hrvatski',
-};
-
 export function detectLang(): Lang {
   const preferred = navigator.languages ?? [navigator.language];
   return preferred.some((l) => l.toLowerCase().startsWith('hr')) ? 'hr' : 'en';
