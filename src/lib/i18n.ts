@@ -14,7 +14,7 @@ export function detectLang(): Lang {
 }
 
 const en = {
-  title: 'Games',
+  title: 'AdFreeGames',
   settings: 'Settings',
   close: 'Close',
   language: 'Language',
@@ -33,7 +33,7 @@ const en = {
 export type Strings = typeof en;
 
 const hr: Strings = {
-  title: 'Igre',
+  title: 'AdFreeGames',
   settings: 'Postavke',
   close: 'Zatvori',
   language: 'Jezik',

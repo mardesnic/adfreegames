@@ -4,7 +4,7 @@ All my free games for young kids in one app. Each card opens a game: spelling, s
 
 ## Demo
 
-Check out the live demo at: https://mardesnic.github.io/des-kids-games/
+Check out the live demo at: https://adfreegames.eu/
 
 On your phone, open it and choose **Add to Home Screen** (Safari) or **Install app** (Chrome). Then one icon on the home screen opens every game: a game opened from a card stays in the same window, and Back comes back to the list.
 
@@ -25,7 +25,7 @@ Every game is its own page in `games/<name>/`, with its logic and tests in `src/
 
 ```bash
 npm install
-npm run dev        # local dev server: the list, and each game at /des-kids-games/games/<name>/
+npm run dev        # local dev server: the list, and each game at /games/<name>/
 npm test           # every game's tests
 npm run lint
 npm run typecheck

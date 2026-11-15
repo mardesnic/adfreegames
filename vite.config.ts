@@ -22,7 +22,7 @@ const version =
     .join(' · ') || 'dev';
 
 // Where the app lives on the site.
-const BASE = '/des-kids-games/';
+const BASE = '/';
 
 // Every game is its own page under games/<slug>/, so each keeps its own
 // styles, but they are built, installed and kept offline together.
@@ -52,8 +52,8 @@ export default defineConfig({
         // A fixed id of its own, so a phone never mixes it up with an earlier
         // install.
         id: 'des-kids-games',
-        name: 'Games',
-        short_name: 'Games',
+        name: 'AdFreeGames',
+        short_name: 'AdFreeGames',
         description: 'Free games for kids',
         theme_color: '#1971c2',
         background_color: '#f4f5f7',
