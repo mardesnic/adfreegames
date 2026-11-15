@@ -141,7 +141,7 @@ export const GAMES: Game[] = [
       en: 'Bring a headless skeleton back to its skull.',
       hr: 'Vrati kosturu njegovu glavu.',
     },
-    colour: '#3b2d5c',
+    colour: '#2f7d5b',
     ready: true,
   },
   {
