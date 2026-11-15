@@ -43,11 +43,6 @@ export const ROOMS = [
   ],
 ];
 
-// The first room shows how the two move, then come beds, trunks, rugs,
-// trunks with bookcases, and last the hardest: bookcases held open by the
-// skeleton alone, and those with beds.
-const ORDER = [0, 1, 4, 6, 5, 2, 3];
-
 // The ids start with r, so progress saved for the rooms before beds and
 // bookcases isn't taken for these.
 const ids = ROOMS.map((room, k) => {
@@ -55,8 +50,24 @@ const ids = ROOMS.map((room, k) => {
   return room.map((_, n) => `r${before + n + 1}`);
 });
 
-export const LEVELS = ORDER.flatMap((k) =>
-  ROOMS[k].map((rows, n) => parse(ids[k][n], rows))
+const byId = new Map(
+  ROOMS.flatMap((room, k) => room.map((rows, n) => [ids[k][n], rows]))
 );
+
+// The first room shows how the two move, then come beds, trunks, rugs,
+// trunks with bookcases, and last the hardest: bookcases held open by the
+// skeleton alone, and those with beds. The second trunk level plays first,
+// as it is easier to start trunks with.
+const ORDER = [
+  ['r1'],
+  ['r2', 'r3', 'r4'],
+  ['r11', 'r10', 'r12'],
+  ['r16', 'r17', 'r18'],
+  ['r13', 'r14', 'r15'],
+  ['r5', 'r6', 'r7'],
+  ['r8', 'r9'],
+].flat();
+
+export const LEVELS = ORDER.map((id) => parse(id, byId.get(id)!));
 
 export const levelById = (id: string) => LEVELS.find((l) => l.id === id);
