@@ -331,37 +331,45 @@ export function Board({
         </div>
       </div>
 
-      {!solved && (
-        <div className={pieces.length > 6 ? 'tray tray--many' : 'tray'}>
-          {pieces.map((p, i) => {
-            // Each piece keeps its place in the tray, big enough for it
-            // turned any way, so nothing moves when one is taken out.
-            const e = extent(puzzle.shapes[i]);
-            const s = shapeOf(i);
-            return (
-              <div
-                key={i}
-                className='slot'
-                style={{ '--size': Math.max(e.w, e.h) } as CSSProperties}
-              >
-                {!p.at && (
-                  <div
-                    className={lifted(i) ? 'piece piece--lifted' : 'piece'}
-                    style={{
-                      width: `${(extent(s).w / Math.max(e.w, e.h)) * 100}%`,
-                    }}
-                    onPointerDown={onDown(i, 'tray')}
-                    role='img'
-                    aria-label={t.piece}
-                  >
-                    <PieceShape shape={s} colour={colourOf(i)} />
-                  </div>
-                )}
-              </div>
-            );
-          })}
-        </div>
-      )}
+      {/* Hidden once solved, but still there, so the board doesn't move. */}
+      <div
+        className={[
+          'tray',
+          pieces.length > 6 && 'tray--many',
+          solved && 'tray--hidden',
+        ]
+          .filter(Boolean)
+          .join(' ')}
+        inert={solved}
+      >
+        {pieces.map((p, i) => {
+          // Each piece keeps its place in the tray, big enough for it
+          // turned any way, so nothing moves when one is taken out.
+          const e = extent(puzzle.shapes[i]);
+          const s = shapeOf(i);
+          return (
+            <div
+              key={i}
+              className='slot'
+              style={{ '--size': Math.max(e.w, e.h) } as CSSProperties}
+            >
+              {!p.at && (
+                <div
+                  className={lifted(i) ? 'piece piece--lifted' : 'piece'}
+                  style={{
+                    width: `${(extent(s).w / Math.max(e.w, e.h)) * 100}%`,
+                  }}
+                  onPointerDown={onDown(i, 'tray')}
+                  role='img'
+                  aria-label={t.piece}
+                >
+                  <PieceShape shape={s} colour={colourOf(i)} />
+                </div>
+              )}
+            </div>
+          );
+        })}
+      </div>
 
       {dragging && (
         <div

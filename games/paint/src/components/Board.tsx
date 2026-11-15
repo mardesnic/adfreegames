@@ -139,34 +139,30 @@ export function Board({
         </figure>
       </div>
 
-      {!solved && (
-        <div className='paints'>
-          {PALETTE[round.level].map((p) => (
-            <button
-              key={p}
-              className={`paint paint--${p}`}
-              onClick={() => onPour(p)}
-              disabled={full}
-              aria-label={t.paints[p]}
-            >
-              <svg viewBox='0 0 60 60' aria-hidden='true'>
-                <path
-                  className='paint__blob'
-                  d='M30 6c10 14 20 24 20 34a20 20 0 0 1-40 0c0-10 10-20 20-34z'
-                  style={{ fill: css(colourOf(p)) }}
-                />
-                <ellipse
-                  className='paint__shine'
-                  cx='22'
-                  cy='38'
-                  rx='4'
-                  ry='7'
-                />
-              </svg>
-            </button>
-          ))}
-        </div>
-      )}
+      {/* Hidden once matched, but still there, so the pictures don't move. */}
+      <div
+        className={solved ? 'paints paints--hidden' : 'paints'}
+        inert={solved}
+      >
+        {PALETTE[round.level].map((p) => (
+          <button
+            key={p}
+            className={`paint paint--${p}`}
+            onClick={() => onPour(p)}
+            disabled={full}
+            aria-label={t.paints[p]}
+          >
+            <svg viewBox='0 0 60 60' aria-hidden='true'>
+              <path
+                className='paint__blob'
+                d='M30 6c10 14 20 24 20 34a20 20 0 0 1-40 0c0-10 10-20 20-34z'
+                style={{ fill: css(colourOf(p)) }}
+              />
+              <ellipse className='paint__shine' cx='22' cy='38' rx='4' ry='7' />
+            </svg>
+          </button>
+        ))}
+      </div>
     </div>
   );
 }

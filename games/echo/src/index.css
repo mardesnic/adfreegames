@@ -231,6 +231,10 @@ h2 {
 .prompt {
   font-size: 1.2rem;
   font-weight: 700;
+  /* One line, so the pads never move when it changes. */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .side:not(.side--turn) .prompt {
@@ -239,16 +243,21 @@ h2 {
 }
 
 /* How far into the song the player on turn is, one dot a note. */
+/* Always one row: on a long song the dots get smaller instead of
+   wrapping, so the pads never move. */
 .dots {
   display: flex;
-  flex-wrap: wrap;
-  gap: 5px;
-  margin-top: 6px;
+  align-items: center;
+  gap: 4px;
+  height: 14px; /* room for the new note's pulse */
+  margin-top: 4px;
+  overflow: hidden;
 }
 
 .dot {
-  width: 10px;
-  height: 10px;
+  flex: 0 1 10px;
+  min-width: 3px;
+  aspect-ratio: 1;
   border-radius: 50%;
   background: color-mix(in srgb, var(--muted) 30%, transparent);
 }

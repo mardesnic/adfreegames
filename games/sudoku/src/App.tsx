@@ -291,7 +291,11 @@ export default function App() {
                     disabled={left <= 0}
                   >
                     <Icon name='hint' />
-                    {t.hint} ({left === Infinity ? '∞' : left})
+                    {t.hint}
+                    {/* A badge, so the count never changes the label's length. */}
+                    <span className='tool__count'>
+                      {left === Infinity ? '∞' : left}
+                    </span>
                   </button>
                 )}
               </div>

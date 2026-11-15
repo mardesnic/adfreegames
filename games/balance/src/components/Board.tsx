@@ -317,41 +317,39 @@ export function Board({
         {pan('right')}
       </svg>
 
-      {/* Once level, the card for the next round takes its place. */}
-      {!solved && (
-        <div className='shelf'>
-          {round.shelf.map((thing, id) => (
-            <button
-              key={id}
-              className={isPlaced(round, id) ? 'fruit fruit--placed' : 'fruit'}
-              onPointerDown={(e) => down(e, id, 'shelf')}
-              {...handlers}
-              onKeyDown={(e) => {
-                // Keyboards have no drag: Enter or Space puts it on or off.
-                if (e.key !== 'Enter' && e.key !== ' ') return;
-                e.preventDefault();
-                if (isPlaced(round, id)) onTakeOff(id);
-                else onPlace(id, 'right');
-              }}
-              aria-label={`${thing.look} ${thing.weight}`}
+      {/* Hidden once level, but still there, so the scale doesn't move. */}
+      <div className={solved ? 'shelf shelf--hidden' : 'shelf'} inert={solved}>
+        {round.shelf.map((thing, id) => (
+          <button
+            key={id}
+            className={isPlaced(round, id) ? 'fruit fruit--placed' : 'fruit'}
+            onPointerDown={(e) => down(e, id, 'shelf')}
+            {...handlers}
+            onKeyDown={(e) => {
+              // Keyboards have no drag: Enter or Space puts it on or off.
+              if (e.key !== 'Enter' && e.key !== ' ') return;
+              e.preventDefault();
+              if (isPlaced(round, id)) onTakeOff(id);
+              else onPlace(id, 'right');
+            }}
+            aria-label={`${thing.look} ${thing.weight}`}
+          >
+            <span
+              className='fruit__look'
+              style={{ fontSize: 13 * sizeOf(thing.weight) + 8 }}
             >
-              <span
-                className='fruit__look'
-                style={{ fontSize: 13 * sizeOf(thing.weight) + 8 }}
-              >
-                {thing.look}
+              {thing.look}
+            </span>
+            {round.level !== 'veryEasy' && (
+              <span className='fruit__weight'>
+                {round.level === 'easy'
+                  ? '•'.repeat(thing.weight)
+                  : thing.weight}
               </span>
-              {round.level !== 'veryEasy' && (
-                <span className='fruit__weight'>
-                  {round.level === 'easy'
-                    ? '•'.repeat(thing.weight)
-                    : thing.weight}
-                </span>
-              )}
-            </button>
-          ))}
-        </div>
-      )}
+            )}
+          </button>
+        ))}
+      </div>
 
       {ghost && (
         <div

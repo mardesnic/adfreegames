@@ -539,6 +539,22 @@ h2 {
   color: var(--muted);
   font-size: 0.8rem;
   font-weight: 600;
+  position: relative;
+}
+
+/* How many hints are left, on the hint button's corner. */
+.tool__count {
+  position: absolute;
+  top: 4px;
+  left: calc(50% + 6px);
+  min-width: 18px;
+  padding: 1px 4px;
+  border-radius: 9px;
+  background: var(--accent);
+  color: var(--on-accent);
+  font-size: 0.7rem;
+  font-weight: 700;
+  line-height: 16px;
 }
 
 .tool:disabled {
@@ -582,7 +598,9 @@ h2 {
 .pad--notes .pad__key {
   font-size: 1.1rem;
   font-weight: 700;
-  padding-top: 14px;
+  /* As much more room as the smaller digit leaves, so the keys keep
+     their height. */
+  padding-top: calc(10px + 0.5rem);
   color: var(--muted);
 }
 

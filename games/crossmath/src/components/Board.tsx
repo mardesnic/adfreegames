@@ -136,8 +136,22 @@ export function Tiles({
   return (
     <div className='tiles' aria-label={t.pickTile}>
       {game.tiles.map((v, k) => {
-        // A placed tile leaves a gap, so the others don't jump about.
-        if (on[k]) return <span key={k} className='tile tile--gap' />;
+        // A placed tile leaves a hidden copy of itself, as wide as the
+        // tile, so the others don't jump about.
+        if (on[k])
+          return (
+            <span
+              key={k}
+              className={
+                typeof v === 'number'
+                  ? 'tile tile--gap'
+                  : 'tile tile--op tile--gap'
+              }
+              aria-hidden='true'
+            >
+              {show(v)}
+            </span>
+          );
         const classes = ['tile'];
         if (typeof v !== 'number') classes.push('tile--op');
         if (k === selected) classes.push('tile--on');
