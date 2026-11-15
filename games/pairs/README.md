@@ -1,6 +1,6 @@
 # Pairs
 
-A free puzzle game for young kids that works offline. Draw a line with your finger to join each pair of same-coloured dots, and fill every square of the board with the lines. Lines can't cross, so plan the way round. Every level is new, and every level can be solved.
+A free puzzle game that works offline. Draw a line with your finger to join each pair of same-coloured dots, and fill every square of the board with the lines. Lines can't cross, so plan the way round. Every level is new, and every level can be solved.
 
 Made for ages 5 and up. There is no timer and no way to lose. Drawing back over a line rubs it out, and Undo takes back the last line.
 

@@ -1,6 +1,6 @@
 # Pixeldoku
 
-A free picture logic puzzle for young kids that works offline. The numbers next to each row and above each column say how many squares to colour there, and in which groups. Colour the right squares and a little picture appears.
+A free picture logic puzzle that works offline. The numbers next to each row and above each column say how many squares to colour there, and in which groups. Colour the right squares and a little picture appears.
 
 Made for ages 5 and up. There is no timer and no way to lose. Undo takes back the last move, and Start over clears the grid.
 

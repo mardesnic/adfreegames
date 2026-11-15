@@ -54,7 +54,7 @@ export default defineConfig({
         id: 'adfreegames',
         name: 'AdFreeGames',
         short_name: 'AdFreeGames',
-        description: 'Free games for kids',
+        description: 'A collection of simple, free and ad-free games.',
         theme_color: '#1971c2',
         background_color: '#f4f5f7',
         display: 'standalone',

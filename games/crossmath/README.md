@@ -1,6 +1,6 @@
 # Crossmath
 
-A free math crossword puzzle for young kids that works offline. The grid is made of little sums that cross each other, like a crossword. Some numbers are missing, and the right pieces wait below the grid: put each one where it makes every sum true.
+A free math crossword puzzle that works offline. The grid is made of little sums that cross each other, like a crossword. Some numbers are missing, and the right pieces wait below the grid: put each one where it makes every sum true.
 
 Made for ages 5 and up. There is no timer and no way to lose: a sum that adds up turns green, one that doesn't gives a little wobble, and any piece can be moved again.
 

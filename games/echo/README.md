@@ -1,6 +1,6 @@
 # Echo
 
-A free music memory game for young kids that works offline. The game plays a song, you play it back, and the song grows a note every turn. How long a song can you remember?
+A free music memory game that works offline. The game plays a song, you play it back, and the song grows a note every turn. How long a song can you remember?
 
 Two kids can also play together: put the phone or tablet flat on the table between you, and each player gets half of the screen, facing them. One plays a note, the other plays it back and adds one of their own.
 

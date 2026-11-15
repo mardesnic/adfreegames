@@ -1,6 +1,6 @@
 # Blocks
 
-A free sliding block puzzle for young kids that works offline. The star block is stuck in a box full of other blocks. Slide the blocks out of the way until the star block can get out through the gap in the side.
+A free sliding block puzzle that works offline. The star block is stuck in a box full of other blocks. Slide the blocks out of the way until the star block can get out through the gap in the side.
 
 Made for ages 5 and up. There is no timer and no way to lose. Undo takes back the last move, and Start over puts the blocks back where they began.
 

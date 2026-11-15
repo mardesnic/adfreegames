@@ -1,6 +1,6 @@
 # Words
 
-A free spelling game for young kids that works offline. A picture is shown, and the child puts the letter tiles in order to spell its word. The words come in Croatian and English, so it helps a child learning to read and write either language.
+A free spelling game that works offline. A picture is shown, and the child puts the letter tiles in order to spell its word. The words come in Croatian and English, so it helps a child learning to read and write either language.
 
 Made for ages 5 and up. There is no timer and no way to lose. Undo takes back the last move, and Start over puts the letters back where they began.
 

@@ -1,6 +1,6 @@
 # Shapes
 
-A free shape puzzle for young kids that works offline. Drag the pieces into the grey outline and tap a piece to turn it. When the outline is full, it turns into a picture.
+A free shape puzzle that works offline. Drag the pieces into the grey outline and tap a piece to turn it. When the outline is full, it turns into a picture.
 
 Made for ages 5 and up. There is no timer and no way to lose: a piece that doesn't fit just goes back. Undo takes back the last move, and Start over puts every piece back in the tray.
 

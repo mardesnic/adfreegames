@@ -1,6 +1,6 @@
 # AdFreeGames
 
-Free games for young kids, in one app with no ads and no tracking. Each card opens a game: spelling, shapes, puzzles, numbers and music. No timer and no way to lose.
+A collection of simple, free and ad-free games: puzzles, words, numbers and music. Each card opens a game. No timer, no way to lose, no accounts and no tracking.
 
 ## Demo
 

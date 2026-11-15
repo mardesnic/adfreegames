@@ -1,6 +1,6 @@
 # Pipes
 
-A free pipe puzzle for young kids that works offline. The water needs to get from the tap on the left to the little plant on the right, but the pipes in between are turned the wrong way. Tap a pipe to turn it, and when they all join up, the water flows through and the plant blooms.
+A free pipe puzzle that works offline. The water needs to get from the tap on the left to the little plant on the right, but the pipes in between are turned the wrong way. Tap a pipe to turn it, and when they all join up, the water flows through and the plant blooms.
 
 Made for ages 5 and up. There is no timer, no move counter and no way to lose: a pipe can be turned as often as you like.
 

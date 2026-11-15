@@ -1,6 +1,6 @@
 # Balance
 
-A free balance scale game for young kids that works offline. One side of the scale holds something, and the child puts fruit from the shelf on the other side until both sides are level. It starts with counting strawberries and grows into simple sums, without writing a single number down.
+A free balance scale game that works offline. One side of the scale holds something, and the child puts fruit from the shelf on the other side until both sides are level. It starts with counting strawberries and grows into simple sums, without writing a single number down.
 
 Made for ages 5 and up. There is no timer and no way to lose. Undo takes back the last move, and Start over takes all the fruit off.
 

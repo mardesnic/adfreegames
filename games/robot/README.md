@@ -1,6 +1,6 @@
 # Robot
 
-A free puzzle game for young kids that works offline. The robot needs to get to its battery: line up arrow cards, press Go, and watch the robot follow them one step at a time. Every level is new, and every level can be solved.
+A free puzzle game that works offline. The robot needs to get to its battery: line up arrow cards, press Go, and watch the robot follow them one step at a time. Every level is new, and every level can be solved.
 
 Made for ages 5 and up. There is no timer and no way to lose. When the robot bumps into a rock, the card that bumped turns red, the robot goes back to the start, and you fix the program.
 

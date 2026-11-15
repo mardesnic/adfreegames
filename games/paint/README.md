@@ -1,6 +1,6 @@
 # Paint
 
-A free colour mixing game for young kids that works offline. A colour is shown, and the child pours drops of red, yellow, blue, white and black paint into a test tube until the paint in it is that colour. It teaches how colours are made, without reading or numbers.
+A free colour mixing game that works offline. A colour is shown, and the child pours drops of red, yellow, blue, white and black paint into a test tube until the paint in it is that colour. It teaches how colours are made, without reading or numbers.
 
 Made for ages 5 and up. There is no timer and no way to lose. Undo takes back the last drop, and Start over empties the tube.
 
