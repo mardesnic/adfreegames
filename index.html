@@ -21,60 +21,23 @@
       media="(prefers-color-scheme: dark)"
     />
     <title>Games</title>
-    <script>
-      // If the page's script can't load (an offline copy saved half way
-      // through an update), drop this page's offline copy and load it
-      // fresh, once. Saved games are in localStorage and are kept.
-      addEventListener(
-        'error',
-        function (e) {
-          var el = e.target;
-          if (!el || el.tagName !== 'SCRIPT' || !('serviceWorker' in navigator))
-            return;
-          if (sessionStorage.getItem('kids-games-reset')) return;
-          sessionStorage.setItem('kids-games-reset', '1');
-          var base = location.origin + '/des-kids-games/';
-          navigator.serviceWorker
-            .getRegistrations()
-            .then(function (rs) {
-              return Promise.all(
-                rs
-                  .filter(function (r) {
-                    return r.scope === base;
-                  })
-                  .map(function (r) {
-                    return r.unregister();
-                  })
-              );
-            })
-            .then(function () {
-              return caches.keys();
-            })
-            .then(function (keys) {
-              return Promise.all(
-                keys
-                  .filter(function (k) {
-                    return k.indexOf(base) !== -1;
-                  })
-                  .map(function (k) {
-                    return caches.delete(k);
-                  })
-              );
-            })
-            .then(function () {
-              location.reload();
-            });
-        },
-        true
-      );
-    </script>
-    <script type="module" crossorigin src="/des-kids-games/assets/index-CPSAnSum.js"></script>
-    <link rel="stylesheet" crossorigin href="/des-kids-games/assets/index-D2ALT7sI.css">
+    <link rel="icon" href="/des-kids-games/favicon.ico" sizes="48x48" />
+    <link
+      rel="icon"
+      href="/des-kids-games/favicon.svg"
+      sizes="any"
+      type="image/svg+xml"
+    />
+    <link
+      rel="apple-touch-icon"
+      href="/des-kids-games/pad-apple-touch-icon-180x180.png"
+    />
+    <script src="/des-kids-games/offline-reset.js"></script>
+    <script type="module" crossorigin src="/des-kids-games/assets/main-BM0MDJxQ.js"></script>
+    <link rel="modulepreload" crossorigin href="/des-kids-games/assets/jsx-runtime-pebkJY5o.js">
+    <link rel="stylesheet" crossorigin href="/des-kids-games/assets/main-D2ALT7sI.css">
   <link rel="manifest" href="/des-kids-games/manifest.webmanifest"><script id="vite-plugin-pwa:register-sw" src="/des-kids-games/registerSW.js"></script>
-<meta name="theme-color" content="#1971c2">
-<link rel="icon" href="/des-kids-games/favicon.ico" sizes="48x48">
-<link rel="icon" href="/des-kids-games/favicon.svg" sizes="any" type="image/svg+xml">
-<link rel="apple-touch-icon" href="/des-kids-games/pad-apple-touch-icon-180x180.png"></head>
+<meta name="theme-color" content="#1971c2"></head>
   <body>
     <div id="root"></div>
   </body>
